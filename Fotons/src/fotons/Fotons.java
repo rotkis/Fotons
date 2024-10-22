@@ -4,6 +4,8 @@
  */
 package fotons;
 
+import view.PocoPotencial;
+
 /**
  *
  * @author unifaljesus
@@ -14,7 +16,8 @@ public class Fotons {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        PocoPotencial j = new PocoPotencial();
+        j.setVisible(true);
     }
     
 }

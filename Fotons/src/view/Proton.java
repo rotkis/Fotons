@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author unifaljesus
@@ -17,6 +21,142 @@ public class Proton extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getLblA() {
+        return lblA;
+    }
+
+    public void setLblA(JLabel lblA) {
+        this.lblA = lblA;
+    }
+
+    public JLabel getLblB() {
+        return lblB;
+    }
+
+    public void setLblB(JLabel lblB) {
+        this.lblB = lblB;
+    }
+
+    public JLabel getLblDados() {
+        return lblDados;
+    }
+
+    public void setLblDados(JLabel lblDados) {
+        this.lblDados = lblDados;
+    }
+
+    public JLabel getLblLargura() {
+        return lblLargura;
+    }
+
+    public void setLblLargura(JLabel lblLargura) {
+        this.lblLargura = lblLargura;
+    }
+
+    public JLabel getLblNf() {
+        return lblNf;
+    }
+
+    public void setLblNf(JLabel lblNf) {
+        this.lblNf = lblNf;
+    }
+
+    public JLabel getLblNi() {
+        return lblNi;
+    }
+
+    public void setLblNi(JLabel lblNi) {
+        this.lblNi = lblNi;
+    }
+
+    public JLabel getLblUnidade() {
+        return lblUnidade;
+    }
+
+    public void setLblUnidade(JLabel lblUnidade) {
+        this.lblUnidade = lblUnidade;
+    }
+
+    public JLabel getLblUnidade1() {
+        return lblUnidade1;
+    }
+
+    public void setLblUnidade1(JLabel lblUnidade1) {
+        this.lblUnidade1 = lblUnidade1;
+    }
+
+    public JLabel getLblUnidade2() {
+        return lblUnidade2;
+    }
+
+    public void setLblUnidade2(JLabel lblUnidade2) {
+        this.lblUnidade2 = lblUnidade2;
+    }
+
+    public JTextField getTxtAp() {
+        return txtAp;
+    }
+
+    public void setTxtAp(JTextField txtAp) {
+        this.txtAp = txtAp;
+    }
+
+    public JTextField getTxtBp() {
+        return txtBp;
+    }
+
+    public void setTxtBp(JTextField txtBp) {
+        this.txtBp = txtBp;
+    }
+
+    public JTextField getTxtLargurap() {
+        return txtLargurap;
+    }
+
+    public void setTxtLargurap(JTextField txtLargurap) {
+        this.txtLargurap = txtLargurap;
+    }
+
+    public JTextField getTxtNfp() {
+        return txtNfp;
+    }
+
+    public void setTxtNfp(JTextField txtNfp) {
+        this.txtNfp = txtNfp;
+    }
+
+    public JTextField getTxtNip() {
+        return txtNip;
+    }
+
+    public void setTxtNip(JTextField txtNip) {
+        this.txtNip = txtNip;
+    }
+
+    public JButton getBtEnviar() {
+        return btEnviar;
+    }
+
+    public void setBtEnviar(JButton btEnviar) {
+        this.btEnviar = btEnviar;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +181,8 @@ public class Proton extends javax.swing.JFrame {
         txtAp = new javax.swing.JTextField();
         txtBp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btVoltar = new javax.swing.JButton();
+        btEnviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +211,20 @@ public class Proton extends javax.swing.JFrame {
         lblUnidade2.setText("un");
 
         jLabel1.setText("Próton");
+
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
+        btEnviar.setText("Enviar");
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,9 +263,14 @@ public class Proton extends javax.swing.JFrame {
                                     .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUnidade2)
-                                    .addComponent(lblUnidade1))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(lblUnidade1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblUnidade2)
+                                        .addGap(73, 73, 73)
+                                        .addComponent(btVoltar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btEnviar)))))
+                        .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(164, 164, 164)
@@ -145,7 +306,9 @@ public class Proton extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblB)
                     .addComponent(lblUnidade2)
-                    .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVoltar)
+                    .addComponent(btEnviar))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -155,6 +318,16 @@ public class Proton extends javax.swing.JFrame {
     private void txtNfpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNfpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNfpActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        PocoPotencial pp = new PocoPotencial();
+        pp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +365,8 @@ public class Proton extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btEnviar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblB;

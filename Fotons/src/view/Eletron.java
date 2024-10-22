@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author unifaljesus
@@ -17,6 +21,142 @@ public class Eletron extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtEnviar() {
+        return btEnviar;
+    }
+
+    public void setBtEnviar(JButton btEnviar) {
+        this.btEnviar = btEnviar;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getLblA() {
+        return lblA;
+    }
+
+    public void setLblA(JLabel lblA) {
+        this.lblA = lblA;
+    }
+
+    public JLabel getLblB() {
+        return lblB;
+    }
+
+    public void setLblB(JLabel lblB) {
+        this.lblB = lblB;
+    }
+
+    public JLabel getLblDados() {
+        return lblDados;
+    }
+
+    public void setLblDados(JLabel lblDados) {
+        this.lblDados = lblDados;
+    }
+
+    public JLabel getLblLargura() {
+        return lblLargura;
+    }
+
+    public void setLblLargura(JLabel lblLargura) {
+        this.lblLargura = lblLargura;
+    }
+
+    public JLabel getLblNf() {
+        return lblNf;
+    }
+
+    public void setLblNf(JLabel lblNf) {
+        this.lblNf = lblNf;
+    }
+
+    public JLabel getLblNi() {
+        return lblNi;
+    }
+
+    public void setLblNi(JLabel lblNi) {
+        this.lblNi = lblNi;
+    }
+
+    public JLabel getLblUnidade() {
+        return lblUnidade;
+    }
+
+    public void setLblUnidade(JLabel lblUnidade) {
+        this.lblUnidade = lblUnidade;
+    }
+
+    public JLabel getLblUnidade1() {
+        return lblUnidade1;
+    }
+
+    public void setLblUnidade1(JLabel lblUnidade1) {
+        this.lblUnidade1 = lblUnidade1;
+    }
+
+    public JLabel getLblUnidade2() {
+        return lblUnidade2;
+    }
+
+    public void setLblUnidade2(JLabel lblUnidade2) {
+        this.lblUnidade2 = lblUnidade2;
+    }
+
+    public JTextField getTxtAe() {
+        return txtAe;
+    }
+
+    public void setTxtAe(JTextField txtAe) {
+        this.txtAe = txtAe;
+    }
+
+    public JTextField getTxtBe() {
+        return txtBe;
+    }
+
+    public void setTxtBe(JTextField txtBe) {
+        this.txtBe = txtBe;
+    }
+
+    public JTextField getTxtLargurae() {
+        return txtLargurae;
+    }
+
+    public void setTxtLargurae(JTextField txtLargurae) {
+        this.txtLargurae = txtLargurae;
+    }
+
+    public JTextField getTxtNfe() {
+        return txtNfe;
+    }
+
+    public void setTxtNfe(JTextField txtNfe) {
+        this.txtNfe = txtNfe;
+    }
+
+    public JTextField getTxtNie() {
+        return txtNie;
+    }
+
+    public void setTxtNie(JTextField txtNie) {
+        this.txtNie = txtNie;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +181,8 @@ public class Eletron extends javax.swing.JFrame {
         lblB = new javax.swing.JLabel();
         lblNi = new javax.swing.JLabel();
         lblUnidade1 = new javax.swing.JLabel();
+        btVoltar = new javax.swing.JButton();
+        btEnviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +205,20 @@ public class Eletron extends javax.swing.JFrame {
         lblNi.setText("N inicial da partícula (Ni):");
 
         lblUnidade1.setText("un");
+
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
+        btEnviar.setText("Enviar");
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,9 +257,14 @@ public class Eletron extends javax.swing.JFrame {
                                     .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUnidade2)
-                                    .addComponent(lblUnidade1))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(lblUnidade1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblUnidade2)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(btVoltar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btEnviar)))))
+                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(164, 164, 164)
@@ -139,12 +300,24 @@ public class Eletron extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblB)
                     .addComponent(lblUnidade2)
-                    .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVoltar)
+                    .addComponent(btEnviar))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        PocoPotencial pp = new PocoPotencial();
+        pp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +355,8 @@ public class Eletron extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btEnviar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblB;
