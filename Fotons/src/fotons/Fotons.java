@@ -4,6 +4,7 @@
  */
 package fotons;
 
+import view.ParametrosCaixaParticula;
 import view.PocoPotencial;
 
 /**
@@ -16,7 +17,7 @@ public class Fotons {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PocoPotencial j = new PocoPotencial();
+        ParametrosCaixaParticula j = new ParametrosCaixaParticula();
         j.setVisible(true);
     }
     
