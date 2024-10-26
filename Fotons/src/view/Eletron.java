@@ -4,8 +4,12 @@
  */
 package view;
 
+import controller.ControllerEletron;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +23,7 @@ public class Eletron extends javax.swing.JFrame {
      */
     public Eletron() {
         initComponents();
+        ce = new ControllerEletron(this);
     }
 
     public JButton getBtEnviar() {
@@ -156,6 +161,32 @@ public class Eletron extends javax.swing.JFrame {
     public void setTxtNie(JTextField txtNie) {
         this.txtNie = txtNie;
     }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JPanel getPanelEletron() {
+        return panelEletron;
+    }
+
+    public void setPanelEletron(JPanel panelEletron) {
+        this.panelEletron = panelEletron;
+    }
+
+    public JTextArea getTxtEletron() {
+        return txtEletron;
+    }
+
+    public void setTxtEletron(JTextArea txtEletron) {
+        this.txtEletron = txtEletron;
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,6 +214,9 @@ public class Eletron extends javax.swing.JFrame {
         lblUnidade1 = new javax.swing.JLabel();
         btVoltar = new javax.swing.JButton();
         btEnviar = new javax.swing.JButton();
+        panelEletron = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtEletron = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,7 +224,7 @@ public class Eletron extends javax.swing.JFrame {
 
         lblUnidade2.setText("un");
 
-        lblUnidade.setText("un");
+        lblUnidade.setText("m");
 
         jLabel1.setText("Elétron");
 
@@ -220,56 +254,84 @@ public class Eletron extends javax.swing.JFrame {
             }
         });
 
+        txtEletron.setColumns(20);
+        txtEletron.setRows(5);
+        jScrollPane1.setViewportView(txtEletron);
+
+        javax.swing.GroupLayout panelEletronLayout = new javax.swing.GroupLayout(panelEletron);
+        panelEletron.setLayout(panelEletronLayout);
+        panelEletronLayout.setHorizontalGroup(
+            panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEletronLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelEletronLayout.setVerticalGroup(
+            panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEletronLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNf)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNfe, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNi)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNie, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblLargura)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtLargurae)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblUnidade))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDados)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblA)
-                                    .addComponent(lblB))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAe, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUnidade1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblUnidade2)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(btVoltar)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDados, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblA)
+                                            .addComponent(lblB))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btEnviar)))))
-                        .addGap(0, 30, Short.MAX_VALUE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtAe, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(11, 11, 11)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblUnidade1)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblUnidade2)
+                                                .addGap(62, 62, 62)
+                                                .addComponent(btVoltar)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btEnviar)))))
+                                .addGap(0, 147, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNf)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNfe, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNi)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNie, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
+                                .addGap(33, 33, 33))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblLargura)
+                                .addGap(34, 34, 34)
+                                .addComponent(txtLargurae)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblUnidade))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(164, 164, 164)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(panelEletron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +365,9 @@ public class Eletron extends javax.swing.JFrame {
                     .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVoltar)
                     .addComponent(btEnviar))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(panelEletron, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -316,7 +380,9 @@ public class Eletron extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
-        // TODO add your handling code here:
+        String resultados = ce.entradasTeclado();
+        txtEletron.setText("RESULTADOS\n"
+                            + resultados);
     }//GEN-LAST:event_btEnviarActionPerformed
 
 //    /**
@@ -354,10 +420,12 @@ public class Eletron extends javax.swing.JFrame {
 //        });
 //    }
 
+    private ControllerEletron ce;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblB;
     private javax.swing.JLabel lblDados;
@@ -367,8 +435,10 @@ public class Eletron extends javax.swing.JFrame {
     private javax.swing.JLabel lblUnidade;
     private javax.swing.JLabel lblUnidade1;
     private javax.swing.JLabel lblUnidade2;
+    private javax.swing.JPanel panelEletron;
     private javax.swing.JTextField txtAe;
     private javax.swing.JTextField txtBe;
+    private javax.swing.JTextArea txtEletron;
     private javax.swing.JTextField txtLargurae;
     private javax.swing.JTextField txtNfe;
     private javax.swing.JTextField txtNie;

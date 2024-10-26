@@ -4,6 +4,7 @@
  */
 package fotons;
 
+import view.Eletron;
 import view.ParametrosCaixaParticula;
 import view.PocoPotencial;
 
@@ -19,6 +20,9 @@ public class Fotons {
     public static void main(String[] args) {
         ParametrosCaixaParticula j = new ParametrosCaixaParticula();
         j.setVisible(true);
+        
+        Eletron e = new Eletron();
+        e.setVisible(true);
     }
     
 }

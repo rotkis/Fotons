@@ -4,8 +4,6 @@
  */
 package model;
 
-import controller.ControllerCaixaParticula;
-
 /**
  *
  * @author Aline Rocha
@@ -43,11 +41,23 @@ public class CaixaParticula {
         this.Xp = Xp;
     }
     
-    public double calcular(){
-         double Ar = Double.parseDouble(A);
+    public String calcular(){
+        double Ar = Double.parseDouble(A);
         double kr = Double.parseDouble(k);
         double XPr = Double.parseDouble(Xp);
-        double res = Ar * Math.sin(kr*XPr);
-        return res;
+        double largura, n, probabilidade;
+        
+        largura = 2 /(Ar*Ar);
+       
+        n = (kr * largura)/(Math.PI);
+        
+        //𝑃(𝑥) = |𝜓(𝑥)|^2 𝑑x  
+        probabilidade = (2/largura) * ((Math.sin(((n * Math.PI * XPr) / largura))) * (Math.sin(((n * Math.PI * XPr) / largura))));
+        
+        //double res = Ar * (Math.sin(Math.toRadians((kr*XPr))));
+        
+        return  "\na) Largura da caixa: " + largura + " m" +
+                "\nb) Nível quântico da partícula: " + n +
+                "\nc) Probabilidade de encontrar a partícula na posição Xp: " + probabilidade + " dx";
     }
 }
