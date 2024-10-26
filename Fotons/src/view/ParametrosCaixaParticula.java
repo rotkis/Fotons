@@ -205,10 +205,7 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
         panelParametros.setLayout(panelParametrosLayout);
         panelParametrosLayout.setHorizontalGroup(
             panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelParametrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         panelParametrosLayout.setVerticalGroup(
             panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,28 +225,6 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelParametros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(38, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblA)
-                            .addComponent(lblK)
-                            .addComponent(lblXp))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtK)
-                            .addComponent(txtA)
-                            .addComponent(txtXp))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUnidadeXp)
-                            .addComponent(lblUnidadeK)
-                            .addComponent(lblUnidadeA))
-                        .addGap(41, 41, 41))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
@@ -257,7 +232,28 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(lblParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblA)
+                    .addComponent(lblK)
+                    .addComponent(lblXp))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtK)
+                    .addComponent(txtA)
+                    .addComponent(txtXp))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUnidadeXp)
+                    .addComponent(lblUnidadeK)
+                    .addComponent(lblUnidadeA))
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +291,11 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         
-        double r = c.pegarParametros();
-        txtRes.setText(String.valueOf(r));
+        String r = c.pegarParametros();
+        txtRes.setText("RESULTADOS\n" + r);
+//        txtRes.setText("RESULTADOS\na) Largura da caixa: "  + String.valueOf(r) + "\n" +
+//                "b) Nível quântico da partícula: " + "\n" + 
+//                "c) Probabilidade de encontrar a partícula na posição Xp: ");
     }//GEN-LAST:event_btEnviarActionPerformed
 
 //    /**
