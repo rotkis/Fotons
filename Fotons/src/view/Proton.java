@@ -4,8 +4,11 @@
  */
 package view;
 
+import controller.ControllerProton;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +22,7 @@ public class Proton extends javax.swing.JFrame {
      */
     public Proton() {
         initComponents();
+        cp = new ControllerProton(this);
     }
 
     public JButton getBtVoltar() {
@@ -156,6 +160,32 @@ public class Proton extends javax.swing.JFrame {
     public void setBtEnviar(JButton btEnviar) {
         this.btEnviar = btEnviar;
     }
+
+    public ControllerProton getCp() {
+        return cp;
+    }
+
+    public void setCp(ControllerProton cp) {
+        this.cp = cp;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextArea getTxtProton() {
+        return txtProton;
+    }
+
+    public void setTxtProton(JTextArea txtProton) {
+        this.txtProton = txtProton;
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,33 +196,74 @@ public class Proton extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblLargura = new javax.swing.JLabel();
-        lblNi = new javax.swing.JLabel();
-        lblNf = new javax.swing.JLabel();
-        lblUnidade = new javax.swing.JLabel();
-        txtLargurap = new javax.swing.JTextField();
-        txtNip = new javax.swing.JTextField();
-        txtNfp = new javax.swing.JTextField();
-        lblDados = new javax.swing.JLabel();
-        lblA = new javax.swing.JLabel();
-        lblB = new javax.swing.JLabel();
-        lblUnidade1 = new javax.swing.JLabel();
-        lblUnidade2 = new javax.swing.JLabel();
-        txtAp = new javax.swing.JTextField();
-        txtBp = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btVoltar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtProton = new javax.swing.JTextArea();
         btEnviar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
+        lblUnidade2 = new javax.swing.JLabel();
+        txtBp = new javax.swing.JTextField();
+        lblB = new javax.swing.JLabel();
+        lblA = new javax.swing.JLabel();
+        txtAp = new javax.swing.JTextField();
+        lblUnidade1 = new javax.swing.JLabel();
+        lblDados = new javax.swing.JLabel();
+        lblNf = new javax.swing.JLabel();
+        txtNfp = new javax.swing.JTextField();
+        lblNi = new javax.swing.JLabel();
+        txtNip = new javax.swing.JTextField();
+        lblUnidade = new javax.swing.JLabel();
+        lblLargura = new javax.swing.JLabel();
+        txtLargurap = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CAIXA 1D");
 
-        lblLargura.setText("Largura da caixa (L):");
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(903, 626));
 
-        lblNi.setText("N inicial da partícula (Ni):");
+        txtProton.setColumns(20);
+        txtProton.setRows(5);
+        jScrollPane1.setViewportView(txtProton);
 
+        btEnviar.setBackground(new java.awt.Color(153, 204, 255));
+        btEnviar.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        btEnviar.setText("Enviar");
+        btEnviar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
+
+        btVoltar.setBackground(new java.awt.Color(153, 204, 255));
+        btVoltar.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        btVoltar.setText("Voltar");
+        btVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
+        lblUnidade2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblUnidade2.setText("un");
+
+        lblB.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblB.setText("b:");
+
+        lblA.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblA.setText("a:");
+
+        lblUnidade1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblUnidade1.setText("un");
+
+        lblDados.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblDados.setText("Dados para a probabilidade:");
+
+        lblNf.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblNf.setText("N final da partícula (Nf):");
-
-        lblUnidade.setText("un");
 
         txtNfp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,116 +271,117 @@ public class Proton extends javax.swing.JFrame {
             }
         });
 
-        lblDados.setText("Dados para a probabilidade:");
+        lblNi.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblNi.setText("N inicial da partícula (Ni):");
 
-        lblA.setText("a:");
+        lblUnidade.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblUnidade.setText("m");
 
-        lblB.setText("b:");
+        lblLargura.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblLargura.setText("Largura da caixa (L):");
 
-        lblUnidade1.setText("un");
-
-        lblUnidade2.setText("un");
-
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Próton");
 
-        btVoltar.setText("Voltar");
-        btVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVoltarActionPerformed(evt);
-            }
-        });
-
-        btEnviar.setText("Enviar");
-        btEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEnviarActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLargura)
+                            .addComponent(lblNi))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNip, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtLargurap, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblUnidade))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNf)
+                        .addGap(50, 50, 50)
+                        .addComponent(txtNfp, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDados)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblA)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAp, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblUnidade1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblB)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblUnidade2)))
+                        .addGap(372, 372, 372)
+                        .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1)))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUnidade)
+                    .addComponent(lblLargura, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(txtLargurap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNi))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNf)
+                    .addComponent(txtNfp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(lblDados)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblA)
+                            .addComponent(txtAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUnidade1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblB)
+                            .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUnidade2))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNf)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNfp, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNi)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNip, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblLargura)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtLargurap)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblUnidade))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDados)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblA)
-                                    .addComponent(lblB))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUnidade1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblUnidade2)
-                                        .addGap(73, 73, 73)
-                                        .addComponent(btVoltar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btEnviar)))))
-                        .addGap(0, 13, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLargura)
-                    .addComponent(lblUnidade)
-                    .addComponent(txtLargurap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNi)
-                    .addComponent(txtNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNf)
-                    .addComponent(txtNfp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(lblDados)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblA)
-                    .addComponent(lblUnidade1)
-                    .addComponent(txtAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblB)
-                    .addComponent(lblUnidade2)
-                    .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btVoltar)
-                    .addComponent(btEnviar))
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
 
         pack();
@@ -326,7 +398,9 @@ public class Proton extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
-        // TODO add your handling code here:
+        String resultados = cp.entradasTeclado();
+        txtProton.setText("RESULTADOS\n"
+                            + resultados);
     }//GEN-LAST:event_btEnviarActionPerformed
 
 //    /**
@@ -364,10 +438,13 @@ public class Proton extends javax.swing.JFrame {
 //        });
 //    }
 
+    private ControllerProton cp;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblB;
     private javax.swing.JLabel lblDados;
@@ -382,5 +459,6 @@ public class Proton extends javax.swing.JFrame {
     private javax.swing.JTextField txtLargurap;
     private javax.swing.JTextField txtNfp;
     private javax.swing.JTextField txtNip;
+    private javax.swing.JTextArea txtProton;
     // End of variables declaration//GEN-END:variables
 }

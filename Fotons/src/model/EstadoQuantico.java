@@ -72,7 +72,7 @@ public class EstadoQuantico {
         hev = 4.136E-15;
         hj = 6.626E-34;
         m = 9.11E-31;
-        converterEvJ = 1.602E-9;
+        converterEvJ = 1.602E-19;
 //        self.c = 3*(10**8)
 //        self.hev = 4.136e-15
 //        self.hj = 6.626e-34
@@ -96,6 +96,8 @@ public class EstadoQuantico {
         double ENiJ = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nioq * nioq)); 
         double ENfEv = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nfoq * nfoq)) / converterEvJ;
         double ENfJ = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nfoq * nfoq)); 
+        //double bidimencEv = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * ((nioq * nioq) + (nfoq * nfoq))) / converterEvJ;
+        //double bidimencJ = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * ((nioq * nioq) + (nfoq * nfoq)));
 //----------------------------------------------------------------------------------------------------------------------------------
         
 //------------------------------ EFOTON, FREQUENCIA E COMPRIMENTO DE ONDA ----------------------------------------------------------------------------------------------------
@@ -139,10 +141,11 @@ public class EstadoQuantico {
 //----------------------------------------------------------------------------------------------------------------------------------
         
 //------------------------- COMPRIMENTO DE ONDA DE BROGLIE --------------------------------------------------------------------------
-        double cOndaBNi, cOndaBNf;
+        double cOndaBNi, cOndaBNf, cOndaBidimenc;
         //self.condab = self.hj/(self.velocidade * self.m)
         cOndaBNi = hj / (velocidadeInicial * m);
         cOndaBNf = hj / (velocidadeFinal * m);
+        //cOndaBidimenc = hj / Math.sqrt(2 * m * bidimencJ);
 //----------------------------------------------------------------------------------------------------------------------------------
 
 //-------------------------- PROBABILIDADE --------------------------------------------------------------------------------------------------------
@@ -161,13 +164,13 @@ public class EstadoQuantico {
                 "b) Energia do nível quântico inicial (Ni): " + ENiEv + " eV ou " +
                 ENiJ + " J" + 
                 "\nEnergia do nível quântico final (Nf): " + ENfEv + " eV ou " + 
-                + ENfJ + " J" +
+                + ENfJ + " J" + 
                 "\n\n"+
                 "c) Energia (𝐸fóton) do fóton " + tipo + ": " + eFoton + " eV ou " +
                 eFotonJ + " J" +
                 "\nFrequência (𝑓) do fóton " + tipo + ": " + frequencia + " Hz" +
                 "\nComprimento (𝜆) de onda do fóton " + tipo + ": " + cOnda +
-                " m ou " + cOnda*1E9 + " nm" +
+                " m ou " + cOnda*1E8 + " nm" +
                 "\n\n" +
                 "d) Velocidade (𝑣) da partícula no nível quântico inicial: " +
                 velocidadeInicial + " m/s" +
@@ -176,8 +179,10 @@ public class EstadoQuantico {
                 "\n\n" +
                 "e) Comprimento de onda de De Broglie (𝜆" + nioq + ") da "
                 + "partícula no nível quântico inicial: " + cOndaBNi +
+                " m ou " + cOndaBNi*1E9 + " nm" +
                 "\nComprimento de onda de De Broglie (𝜆" + nfoq + ") da "
                 + "partícula no nível quântico final: " + cOndaBNf +
+                " m ou " + cOndaBNf*1E9 + " nm" + 
                 "\n\n" +
                 "f) Probabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula, em %, "
                 + "entre 𝑎 e 𝑏 no nível inicial: " + probabilidadeNi +

@@ -158,24 +158,58 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblParametros = new javax.swing.JLabel();
-        txtA = new javax.swing.JTextField();
-        txtK = new javax.swing.JTextField();
-        txtXp = new javax.swing.JTextField();
-        lblA = new javax.swing.JLabel();
-        lblK = new javax.swing.JLabel();
-        lblXp = new javax.swing.JLabel();
-        lblUnidadeA = new javax.swing.JLabel();
-        lblUnidadeK = new javax.swing.JLabel();
-        lblUnidadeXp = new javax.swing.JLabel();
         panelParametros = new javax.swing.JPanel();
+        lblXp = new javax.swing.JLabel();
+        lblK = new javax.swing.JLabel();
+        lblA = new javax.swing.JLabel();
+        btEnviar = new javax.swing.JButton();
+        lblParametros = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtRes = new javax.swing.JTextArea();
-        btEnviar = new javax.swing.JButton();
+        txtXp = new javax.swing.JTextField();
+        lblUnidadeXp = new javax.swing.JLabel();
+        lblUnidadeK = new javax.swing.JLabel();
+        lblUnidadeA = new javax.swing.JLabel();
+        txtA = new javax.swing.JTextField();
+        txtK = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuParametros = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CAIXA 1D");
+        setPreferredSize(new java.awt.Dimension(903, 626));
 
-        lblParametros.setText("𝝍 𝒏 (𝒙) ");
+        panelParametros.setBackground(new java.awt.Color(153, 204, 255));
+        panelParametros.setPreferredSize(new java.awt.Dimension(903, 626));
+
+        lblXp.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblXp.setText("Xp:");
+
+        lblK.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblK.setText("k:");
+
+        lblA.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblA.setText("A:");
+
+        btEnviar.setBackground(new java.awt.Color(153, 204, 255));
+        btEnviar.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        btEnviar.setText("Enviar");
+        btEnviar.setToolTipText("");
+        btEnviar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
+
+        lblParametros.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblParametros.setText("ψ n (x)");
+
+        txtRes.setColumns(20);
+        txtRes.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        txtRes.setRows(5);
+        jScrollPane1.setViewportView(txtRes);
 
         txtXp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,103 +217,117 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
             }
         });
 
-        lblA.setText("A:");
-
-        lblK.setText("k:");
-
-        lblXp.setText("Xp:");
-
-        lblUnidadeA.setText("un");
-
-        lblUnidadeK.setText("un");
-
+        lblUnidadeXp.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblUnidadeXp.setText("un");
 
-        panelParametros.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblUnidadeK.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblUnidadeK.setText("un");
 
-        txtRes.setColumns(20);
-        txtRes.setRows(5);
-        jScrollPane1.setViewportView(txtRes);
+        lblUnidadeA.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblUnidadeA.setText("un");
 
         javax.swing.GroupLayout panelParametrosLayout = new javax.swing.GroupLayout(panelParametros);
         panelParametros.setLayout(panelParametrosLayout);
         panelParametrosLayout.setHorizontalGroup(
             panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(panelParametrosLayout.createSequentialGroup()
+                .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelParametrosLayout.createSequentialGroup()
+                            .addGap(94, 94, 94)
+                            .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblK)
+                                    .addComponent(lblA))
+                                .addGroup(panelParametrosLayout.createSequentialGroup()
+                                    .addComponent(lblXp)
+                                    .addGap(3, 3, 3)))
+                            .addGap(33, 33, 33)
+                            .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtA)
+                                .addComponent(txtK)
+                                .addComponent(txtXp, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelParametrosLayout.createSequentialGroup()
+                                    .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblUnidadeXp)
+                                        .addComponent(lblUnidadeK))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblUnidadeA)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParametrosLayout.createSequentialGroup()
+                            .addGap(58, 58, 58)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelParametrosLayout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(lblParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         panelParametrosLayout.setVerticalGroup(
             panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+            .addGroup(panelParametrosLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(lblParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelParametrosLayout.createSequentialGroup()
+                        .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelParametrosLayout.createSequentialGroup()
+                                .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblA)
+                                    .addComponent(txtA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblUnidadeA))
+                                .addGap(73, 73, 73))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelParametrosLayout.createSequentialGroup()
+                                .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblK))
+                                .addGap(24, 24, 24)))
+                        .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblXp)
+                            .addComponent(txtXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelParametrosLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(panelParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUnidadeK)
+                            .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addComponent(lblUnidadeXp)))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
-        btEnviar.setText("Enviar");
-        btEnviar.setToolTipText("");
-        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.setBackground(new java.awt.Color(51, 153, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jMenu1.setText("Menu");
+
+        menuParametros.setBackground(new java.awt.Color(51, 153, 255));
+        menuParametros.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        menuParametros.setForeground(new java.awt.Color(255, 255, 255));
+        menuParametros.setText("Poço Potencial Unidimensional");
+        menuParametros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEnviarActionPerformed(evt);
+                menuParametrosActionPerformed(evt);
             }
         });
+        jMenu1.add(menuParametros);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(btEnviar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(lblParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblA)
-                    .addComponent(lblK)
-                    .addComponent(lblXp))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtK)
-                    .addComponent(txtA)
-                    .addComponent(txtXp))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUnidadeXp)
-                    .addComponent(lblUnidadeK)
-                    .addComponent(lblUnidadeA))
-                .addGap(41, 41, 41))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelParametros, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lblParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUnidadeA)
-                    .addComponent(txtA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblA))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUnidadeK)
-                    .addComponent(txtK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblK))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUnidadeXp)
-                    .addComponent(txtXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblXp))
-                .addGap(35, 35, 35)
-                .addComponent(btEnviar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(panelParametros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+            .addComponent(panelParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -297,6 +345,12 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
 //                "b) Nível quântico da partícula: " + "\n" + 
 //                "c) Probabilidade de encontrar a partícula na posição Xp: ");
     }//GEN-LAST:event_btEnviarActionPerformed
+
+    private void menuParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuParametrosActionPerformed
+        PocoPotencial pp = new PocoPotencial();
+        pp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuParametrosActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -336,6 +390,8 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
     public ControllerCaixaParticula c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblK;
@@ -344,6 +400,7 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
     private javax.swing.JLabel lblUnidadeK;
     private javax.swing.JLabel lblUnidadeXp;
     private javax.swing.JLabel lblXp;
+    private javax.swing.JMenuItem menuParametros;
     private javax.swing.JPanel panelParametros;
     private javax.swing.JTextField txtA;
     private javax.swing.JTextField txtK;
