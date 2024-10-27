@@ -66,35 +66,39 @@ public class EstadoQuantico {
         double aoq = Double.parseDouble(a);
         double boq = Double.parseDouble(b);
         int nioq = Integer.parseInt(Ni);
-        int nfoq = Integer.parseInt(Nf);        
+        int nfoq = Integer.parseInt(Nf); 
         
+        c = 3 * 10E8; 
+        hev = 4.136E-15;
+        hj = 6.626E-34;
+        m = 9.11E-31;
+        converterEvJ = 1.602E-9;
+//        self.c = 3*(10**8)
+//        self.hev = 4.136e-15
+//        self.hj = 6.626e-34
+//        self.m = 9.11e-31
+//        self.converterEvJ = 1.602e-9
+        
+//-------------------- FUNCAO DE ONDA QUANTICA --------------------------------------------------------------------------------------------------------------
         double A, kni, knf;
         
         A = Math.sqrt(2 / larguraoq);
         
         kni =  (nioq * Math.PI) / larguraoq;
         knf =  (nfoq * Math.PI) / larguraoq;
-        //largura = 2 /(Ar*Ar);
-        
-        //n = kr * XPr * largura;
-        
-        c = 3 * 10E8; // c = 3*(10**8)
-        hev = 4.136E-15;
-        hj = 6.626E-34;
-        m = 9.11E-31;
-        converterEvJ = 1.602E-9;
-            // self.c = 3*(10**8)
-//        self.hev = 4.136e-15
-//        self.hj = 6.626e-34
-//        self.m = 9.11e-31
-//        self.converterEvJ = 1.602e-9
+//----------------------------------------------------------------------------------------------------------------------------------
+
+//------------------ ENERGIA DO NIVEL QUANTICO ----------------------------------------------------------------------------------------------------------------        
+
 
 //      𝐸𝑛=(ℎ2/8𝑚𝐿2)𝑛2
         double ENiEv = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nioq * nioq)) / converterEvJ; 
         double ENiJ = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nioq * nioq)); 
         double ENfEv = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nfoq * nfoq)) / converterEvJ;
         double ENfJ = (((hj * hj)/(8 * m * (larguraoq * larguraoq))) * (nfoq * nfoq)); 
+//----------------------------------------------------------------------------------------------------------------------------------
         
+//------------------------------ EFOTON, FREQUENCIA E COMPRIMENTO DE ONDA ----------------------------------------------------------------------------------------------------
         double eFoton  = 1;
         double eFotonJ = 1;
         double frequencia;
@@ -125,13 +129,30 @@ public class EstadoQuantico {
         cOnda = (hj * c) / eFotonJ; // m
         
         frequencia = eFotonJ / hj; // Hz
+//----------------------------------------------------------------------------------------------------------------------------------
         
+//--------------------------- VELOCIDADE -------------------------------------------------------------------------------------------------------
         double velocidadeInicial, velocidadeFinal;
         
         velocidadeInicial = Math.sqrt(((2 * ENiJ)/m));
         velocidadeFinal = Math.sqrt(((2 * ENfJ)/m));
+//----------------------------------------------------------------------------------------------------------------------------------
         
-        
+//------------------------- COMPRIMENTO DE ONDA DE BROGLIE --------------------------------------------------------------------------
+        double cOndaBNi, cOndaBNf;
+        //self.condab = self.hj/(self.velocidade * self.m)
+        cOndaBNi = hj / (velocidadeInicial * m);
+        cOndaBNf = hj / (velocidadeFinal * m);
+//----------------------------------------------------------------------------------------------------------------------------------
+
+//-------------------------- PROBABILIDADE --------------------------------------------------------------------------------------------------------
+        double probabilidadeNi, probabilidadeNf, x;
+        //𝑃(𝑥) = |𝜓(𝑥)|^2 𝑑x  
+        //probabilidade = (2/largura) * ((Math.sin(((n * Math.PI * XPr) / largura))) * (Math.sin(((n * Math.PI * XPr) / largura))));
+        probabilidadeNi = (A * (1/kni) * (((kni * boq) - (Math.sin(kni * boq) * Math.cos(kni * boq))) / 2)) - (A * (1/kni) * (((kni * aoq) - (Math.sin(kni * aoq) * Math.cos(kni * aoq))) / 2));
+        probabilidadeNf = (A * (1/knf) * (((knf * boq) - (Math.sin(knf * boq) * Math.cos(knf * boq))) / 2)) - (A * (1/knf) * (((knf * aoq) - (Math.sin(knf * aoq) * Math.cos(knf * aoq))) / 2));
+//----------------------------------------------------------------------------------------------------------------------------------
+
         return "a) Função de onda quântica no SI (Ni): 𝜓" + nioq + "(𝑥) = " + 
                 A + " * sin⁡(" + kni +" * 𝑥)" + 
                 "\nFunção de onda quântica no SI (Nf): 𝜓" + nfoq + "(𝑥) = " + 
@@ -151,48 +172,17 @@ public class EstadoQuantico {
                 "d) Velocidade (𝑣) da partícula no nível quântico inicial: " +
                 velocidadeInicial + " m/s" +
                 "\nVelocidade (𝑣) da partícula no nível quântico final: " + 
-                velocidadeFinal + " m/s\n\n";
-    }
-    
-    
-    
-    
-    
-    
-    
-    public String energiaFrequenciaCOnda(){
-        double larguraoq = Double.parseDouble(largura);
-        double aoq = Double.parseDouble(a);
-        double boq = Double.parseDouble(b);
-        int nioq = Integer.parseInt(Ni);
-        int nfoq = Integer.parseInt(Nf);        
-        
-        c = 3 * Math.pow(10, 8); // c = 3*(10**8)
-        hev = Math.pow(4.136, -15);
-        hj = Math.pow(6.626, -34);
-        m = Math.pow(9.11, -31);
-            
-//        self.c = 3*(10**8)
-//        self.hev = 4.136e-15
-//        self.hj = 6.626e-34
-//        self.m = 9.11e-31
-//        self.converterEvJ = 1.602e-9
-
-        if(nfoq < nioq){
-            
-        }
-        // Absorcao
-        else if(nfoq > nioq){
-        
-        }
-
-//      𝐸𝑛=(ℎ2/8𝑚𝐿2)𝑛2
-        double eFoton = ((Math.pow(hev, 2))/(8 * m * Math.pow(larguraoq, 2))) * Math.pow(nioq, 2); 
-        double frequencia = ((Math.pow(hj, 2))/(8 * m * Math.pow(larguraoq, 2))) * Math.pow(nioq, 2); 
-        double cOnda = ((Math.pow(hev, 2))/(8 * m * Math.pow(larguraoq, 2))) * Math.pow(nfoq, 2);
-        
-       
-        return "Energia do nível quântico inicial (Ni) em Ev: ";
+                velocidadeFinal + " m/s" + 
+                "\n\n" +
+                "e) Comprimento de onda de De Broglie (𝜆" + nioq + ") da "
+                + "partícula no nível quântico inicial: " + cOndaBNi +
+                "\nComprimento de onda de De Broglie (𝜆" + nfoq + ") da "
+                + "partícula no nível quântico final: " + cOndaBNf +
+                "\n\n" +
+                "f) Probabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula, em %, "
+                + "entre 𝑎 e 𝑏 no nível inicial: " + probabilidadeNi +
+                "\nProbabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula, em %, "
+                + "entre 𝑎 e 𝑏 no nível final: " + probabilidadeNf;
     }
     
 }
