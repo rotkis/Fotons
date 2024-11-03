@@ -4,11 +4,30 @@
  */
 package model;
 
+import com.mindfusion.charting.Axis;
+import com.mindfusion.charting.GridType;
+import com.mindfusion.charting.LineType;
+import com.mindfusion.charting.PointSeries;
+import com.mindfusion.charting.Theme;
+import com.mindfusion.charting.swing.LineChart;
+import com.mindfusion.drawing.Align;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.geom.Point2D;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
+import view.Eletron;
+
 /**
  *
  * @author manga
  */
 public class EstadoQuantico {
+    private Eletron view;
     private String largura, a, b, Ni, Nf;
     private double c, hev, hj, m, converterEvJ;
 
@@ -19,6 +38,11 @@ public class EstadoQuantico {
         this.Ni = Ni;
         this.Nf = Nf;
     }
+
+    public EstadoQuantico() {
+    }
+
+    
 
     public String getLargura() {
         return largura;
@@ -67,6 +91,8 @@ public class EstadoQuantico {
         double boq = Double.parseDouble(b);
         int nioq = Integer.parseInt(Ni);
         int nfoq = Integer.parseInt(Nf); 
+        DecimalFormat formatoCientifico = new DecimalFormat("0.###E0");
+        DecimalFormat formatoDecimal = new DecimalFormat("0.#");
         
         c = 3 * 10E8; 
         hev = 4.136E-15;
@@ -149,45 +175,230 @@ public class EstadoQuantico {
 //----------------------------------------------------------------------------------------------------------------------------------
 
 //-------------------------- PROBABILIDADE --------------------------------------------------------------------------------------------------------
-        double probabilidadeNi, probabilidadeNf, x;
-        //𝑃(𝑥) = |𝜓(𝑥)|^2 𝑑x  
-        //probabilidade = (2/largura) * ((Math.sin(((n * Math.PI * XPr) / largura))) * (Math.sin(((n * Math.PI * XPr) / largura))));
-        probabilidadeNi = (A * (1/kni) * (((kni * boq) - (Math.sin(kni * boq) * Math.cos(kni * boq))) / 2)) - (A * (1/kni) * (((kni * aoq) - (Math.sin(kni * aoq) * Math.cos(kni * aoq))) / 2));
-        probabilidadeNf = (A * (1/knf) * (((knf * boq) - (Math.sin(knf * boq) * Math.cos(knf * boq))) / 2)) - (A * (1/knf) * (((knf * aoq) - (Math.sin(knf * aoq) * Math.cos(knf * aoq))) / 2));
-//----------------------------------------------------------------------------------------------------------------------------------
+        double probabilidadeNi = 0, probabilidadeNf = 0; 
+        String probabFormatNi = "", probabFormatNf = "";
+        int numSubintervalos = 1000; // Número de subintervalos para aproximação
+        
+        if(aoq > boq){
+            JOptionPane.showMessageDialog(view, "Digite valores válidos para a probabilidade!\n a < x < b",
+                    "Erro",JOptionPane.ERROR_MESSAGE);        
+        }
+        else{
+            //𝑃(𝑥) = |𝜓(𝑥)|^2 𝑑x  
+            //probabilidade = (2/largura) * ((Math.sin(((n * Math.PI * XPr) / largura))) * (Math.sin(((n * Math.PI * XPr) / largura))));
+            //probabilidadeNi = (A * (1/kni) * (((kni * boq) - (Math.sin(kni * boq) * Math.cos(kni * boq))) / 2)) - (A * (1/kni) * (((kni * aoq) - (Math.sin(kni * aoq) * Math.cos(kni * aoq))) / 2));
+            //probabilidadeNf = (A * (1/knf) * (((knf * boq) - (Math.sin(knf * boq) * Math.cos(knf * boq))) / 2)) - (A * (1/knf) * (((knf * aoq) - (Math.sin(knf * aoq) * Math.cos(knf * aoq))) / 2));
+            
+        //double L = 2E-9;   // Largura do poço (exemplo)
+        //int n = 3;        // Número quântico (exemplo)
+        //double a = L / 3;     // Limite inferior de integração
+        //double b = (2*L) / 3;     // Limite superior de integração
+
+        // Calcula a integral da densidade de probabilidade
+        probabilidadeNi = calcularIntegral(aoq, boq, numSubintervalos, larguraoq, nioq);
+        probabilidadeNf = calcularIntegral(aoq, boq, numSubintervalos, larguraoq, nfoq);
+        
+        // Converte o resultado para porcentagem
+        double porcentagemNi = probabilidadeNi * 100;
+        double porcentagemNf = probabilidadeNf * 100;
+
+        // Formata o resultado em notação com um dígito após a vírgula
+        probabFormatNi = formatoDecimal.format(porcentagemNi);
+        probabFormatNf = formatoDecimal.format(porcentagemNf);
+        
+//-------------------------------------------------------------------------------------------------------------------------------------------
+        
+//----------------------------- GRAFICO FUNCAO DE ONDA ----------------------------------------------------------------------------------------------------------------------        
+        // Cálculo da função de onda e exibição do gráfico do Ni
+        OndaQuantica ondaQuanticaNi = new OndaQuantica(nioq, larguraoq);
+        ondaQuanticaNi.exibirGrafico();
+        
+        // Cálculo da função de onda e exibição do gráfico do Nf
+        OndaQuantica ondaQuanticaNf = new OndaQuantica(nfoq, larguraoq);
+        ondaQuanticaNf.exibirGrafico();
+//---------------------------------------------------------------------------------------------------------------------------------------------        
+
+//----------------------------- GRAFICO FUNCAO DE DISTRIBUICAO DE PROBABILIDADE ----------------------------------------------------------------------------------------------------------
+        // Cálculo da funcao da distribuicao de probabilidade e exibição do gráfico do Ni
+        DistribuicaoProbabilidade distProbabNi = new DistribuicaoProbabilidade(aoq, boq, numSubintervalos, larguraoq, nioq);
+        distProbabNi.exibirGrafico();
+        
+        // Cálculo da funcao da distribuicao de probabilidade e exibição do gráfico do Nf
+        DistribuicaoProbabilidade distProbabNf = new DistribuicaoProbabilidade(aoq, boq, numSubintervalos, larguraoq, nfoq);
+        distProbabNf.exibirGrafico();        
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+        }
 
         return "a) Função de onda quântica no SI (Ni): 𝜓" + nioq + "(𝑥) = " + 
-                A + " * sin⁡(" + kni +" * 𝑥)" + 
+                formatoCientifico.format(A) + " * sin⁡(" + formatoCientifico.format(kni) +" * 𝑥)" + 
                 "\nFunção de onda quântica no SI (Nf): 𝜓" + nfoq + "(𝑥) = " + 
-                A + " * sin⁡(" + knf +" * 𝑥)" + 
+                formatoCientifico.format(A) + " * sin⁡(" + formatoCientifico.format(knf) +" * 𝑥)" + 
                 "\n\n" +
-                "b) Energia do nível quântico inicial (Ni): " + ENiEv + " eV ou " +
-                ENiJ + " J" + 
-                "\nEnergia do nível quântico final (Nf): " + ENfEv + " eV ou " + 
-                + ENfJ + " J" + 
+                "b) Energia do nível quântico inicial (Ni): " + formatoCientifico.format(ENiEv) + " eV ou " +
+                formatoCientifico.format(ENiJ) + " J" + 
+                "\nEnergia do nível quântico final (Nf): " + formatoCientifico.format(ENfEv) + " eV ou " + 
+                formatoCientifico.format(ENfJ) + " J" +
                 "\n\n"+
-                "c) Energia (𝐸fóton) do fóton " + tipo + ": " + eFoton + " eV ou " +
-                eFotonJ + " J" +
-                "\nFrequência (𝑓) do fóton " + tipo + ": " + frequencia + " Hz" +
-                "\nComprimento (𝜆) de onda do fóton " + tipo + ": " + cOnda +
-                " m ou " + cOnda*1E8 + " nm" +
+                "c) Energia (𝐸fóton) do fóton " + tipo + ": " + formatoCientifico.format(eFoton) + " eV ou " +
+                formatoCientifico.format(eFotonJ) + " J" +
+                "\nFrequência (𝑓) do fóton " + tipo + ": " + formatoCientifico.format(frequencia) + " Hz" +
+                "\nComprimento (𝜆) de onda do fóton " + tipo + ": " + formatoCientifico.format(cOnda) +
+                " m ou " + formatoCientifico.format(cOnda*1E8) + " nm" +
                 "\n\n" +
                 "d) Velocidade (𝑣) da partícula no nível quântico inicial: " +
-                velocidadeInicial + " m/s" +
+                formatoCientifico.format(velocidadeInicial) + " m/s" +
                 "\nVelocidade (𝑣) da partícula no nível quântico final: " + 
-                velocidadeFinal + " m/s" + 
+                formatoCientifico.format(velocidadeFinal) + " m/s" + 
                 "\n\n" +
                 "e) Comprimento de onda de De Broglie (𝜆" + nioq + ") da "
-                + "partícula no nível quântico inicial: " + cOndaBNi +
-                " m ou " + cOndaBNi*1E9 + " nm" +
+                + "partícula no nível quântico inicial: " + formatoCientifico.format(cOndaBNi) +
+                " m ou " + formatoCientifico.format(cOndaBNi*1E9) + " nm" +
                 "\nComprimento de onda de De Broglie (𝜆" + nfoq + ") da "
-                + "partícula no nível quântico final: " + cOndaBNf +
-                " m ou " + cOndaBNf*1E9 + " nm" + 
+                + "partícula no nível quântico final: " + formatoCientifico.format(cOndaBNf) +
+                " m ou " + formatoCientifico.format(cOndaBNf*1E9) + " nm" + 
                 "\n\n" +
-                "f) Probabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula, em %, "
-                + "entre 𝑎 e 𝑏 no nível inicial: " + probabilidadeNi +
-                "\nProbabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula, em %, "
-                + "entre 𝑎 e 𝑏 no nível final: " + probabilidadeNf;
+                "f) Probabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula "
+                + "entre 𝑎 e 𝑏 no nível inicial: " + probabFormatNi + " %" +
+                "\nProbabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula "
+                + "entre 𝑎 e 𝑏 no nível final: " + probabFormatNf + " %";
+    }
+    
+    // Função de densidade de probabilidade que queremos integrar
+    public double funcaoDensidadeProbabilidade(double x, double L, int n) {
+        double coeficiente = 2 / L;
+        double argumento = (n * Math.PI * x) / L;
+        return coeficiente * Math.pow(Math.sin(argumento), 2);
+    }
+
+    // Método para calcular a integral usando a regra do trapézio
+    public double calcularIntegral(double a, double b, int numSubintervalos, double L, int n) {
+        double h = (b - a) / numSubintervalos; // Largura dos subintervalos
+        double soma = (funcaoDensidadeProbabilidade(a, L, n) + funcaoDensidadeProbabilidade(b, L, n)) / 2.0;
+
+        for (int i = 1; i < numSubintervalos; i++) {
+            soma += funcaoDensidadeProbabilidade(a + i * h, L, n);
+        }
+
+        return soma * h;
+    }
+    
+    
+// Classe OndaQuantica
+    class OndaQuantica {
+        private double larguraoq;
+        private int n;
+
+        public OndaQuantica(int n, double larguraoq) {
+            this.n = n;
+            this.larguraoq = larguraoq;
+        }
+
+        public void exibirGrafico() {
+            // Cria o gráfico de linha
+            LineChart lineChart = new LineChart();
+            List<Point2D> dataPoints = new ArrayList<>();
+            List<String> labels = new ArrayList<>();
+
+            // Gera dados da função de onda para um intervalo de x
+            for (double x = 0; x <= larguraoq; x += 0.00000000001) {
+                double y = (2/larguraoq) * (Math.sin(((n * Math.PI * x) / larguraoq)) / larguraoq);
+                //double y = A * Math.sin(kni * x);
+                dataPoints.add(new Point2D.Double(x, y));
+                labels.add(" ");
+                //labels.add("x: " + x); // Adiciona rótulos para cada ponto
+            }
+
+            // Cria a série de dados e adiciona ao gráfico
+            PointSeries series = new PointSeries(dataPoints, labels);
+            series.setTitle("Função de Onda com N = " + n);
+            
+            lineChart.getSeries().add(series);
+            lineChart.setLegendTitle("Legenda");
+            lineChart.setBackground(new java.awt.Color(153, 204, 255));
+            lineChart.setGridType(GridType.Crossed);
+            
+            
+            // Configura e exibe o gráfico
+            Axis xAxis = lineChart.getXAxis();
+            xAxis.setTitle("Amplitude");
+            xAxis.setOrigin(0.0);
+            xAxis.setMinValue(-0.0000000001);
+            xAxis.setNumberFormat("0.###E0");
+            Axis yAxis = lineChart.getYAxis();
+            yAxis.setTitle("ψ" + n);
+            yAxis.setOrigin(0.0);
+            yAxis.setNumberFormat("0.###E0");
+
+            lineChart.setPreferredSize(new java.awt.Dimension(1000, 800));
+            javax.swing.SwingUtilities.invokeLater(() -> {
+                javax.swing.JFrame frame = new javax.swing.JFrame("Gráfico da Função de Onda com N = " + n);
+                frame.setContentPane(lineChart);
+                frame.pack();
+                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            });
+        }
+    }
+    
+    // Classe DistribuicaoProbabilidade
+    class DistribuicaoProbabilidade {
+        private double a, b, larguraoq;
+        private int numSubintervalos, n;
+
+        public DistribuicaoProbabilidade(double a, double b, int numSubintervalos, double larguraoq, int n) {
+            this.a = a;
+            this.b = b;
+            this.numSubintervalos = numSubintervalos;
+            this.larguraoq = larguraoq;
+            this.n = n;
+        }
+
+        public void exibirGrafico() {
+            // Cria o gráfico de linha
+            LineChart lineChart = new LineChart();
+            List<Point2D> dataPoints = new ArrayList<>();
+            List<String> labels = new ArrayList<>();
+
+            // Gera dados da função de onda para um intervalo de x
+            for (double x = 0; x <= larguraoq; x += 0.00000000001) {
+                double y = (2/larguraoq) * ((Math.sin(((n * Math.PI * x) / larguraoq))) * (Math.sin(((n * Math.PI * x) / larguraoq))));
+                //double y = A * Math.sin(kni * x);
+                dataPoints.add(new Point2D.Double(x, y));
+                labels.add(" ");
+                //labels.add("x: " + x); // Adiciona rótulos para cada ponto
+            }
+
+            // Cria a série de dados e adiciona ao gráfico
+            PointSeries series = new PointSeries(dataPoints, labels);
+            series.setTitle("Função de Distribuicao da Probabilidade com N = " + n);
+            lineChart.getSeries().add(series);
+            lineChart.setLegendTitle("Legenda");
+            lineChart.setBackground(new java.awt.Color(153, 204, 255));
+            lineChart.setGridType(GridType.Crossed);
+            
+            // Configura e exibe o gráfico
+            Axis xAxis = lineChart.getXAxis();
+            xAxis.setTitle("Amplitude");
+            xAxis.setOrigin(0.0);
+            xAxis.setMinValue(-0.0000000001);
+            xAxis.setNumberFormat("0.###E0");
+            Axis yAxis = lineChart.getYAxis();
+            yAxis.setTitle("|ψ" + n + "|²");
+            yAxis.setOrigin(0.0);
+            yAxis.setNumberFormat("0.###E0");
+
+            lineChart.setPreferredSize(new java.awt.Dimension(1000, 800));
+            javax.swing.SwingUtilities.invokeLater(() -> {
+                javax.swing.JFrame frame = new javax.swing.JFrame("Gráfico da Função de Distribuicao de Probabilidade com N = " + n);
+                frame.setContentPane(lineChart);
+                frame.pack();
+                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            });
+        }
     }
     
 }

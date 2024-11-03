@@ -263,7 +263,7 @@ public class Eletron extends javax.swing.JFrame {
         lblLargura.setText("Largura da caixa (L):");
 
         lblUnidade2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        lblUnidade2.setText("un");
+        lblUnidade2.setText("m");
 
         lblB.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblB.setText("b:");
@@ -272,7 +272,7 @@ public class Eletron extends javax.swing.JFrame {
         lblNi.setText("N inicial da partícula (Ni):");
 
         lblUnidade1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        lblUnidade1.setText("un");
+        lblUnidade1.setText("m");
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Elétron");
@@ -380,6 +380,7 @@ public class Eletron extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -390,7 +391,7 @@ public class Eletron extends javax.swing.JFrame {
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         String resultados = ce.entradasTeclado();
-        txtEletron.setText("RESULTADOS\n"
+        txtEletron.setText("\t\t\tRESULTADOS\n\n"
                             + resultados);
     }//GEN-LAST:event_btEnviarActionPerformed
 

@@ -207,7 +207,7 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
         lblParametros.setText("ψ n (x)");
 
         txtRes.setColumns(20);
-        txtRes.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        txtRes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRes.setRows(5);
         jScrollPane1.setViewportView(txtRes);
 
@@ -331,6 +331,7 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtXpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtXpActionPerformed
@@ -340,7 +341,7 @@ public class ParametrosCaixaParticula extends javax.swing.JFrame {
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         
         String r = c.pegarParametros();
-        txtRes.setText("RESULTADOS\n" + r);
+        txtRes.setText("\n\t\tRESULTADOS\n" + r);
 //        txtRes.setText("RESULTADOS\na) Largura da caixa: "  + String.valueOf(r) + "\n" +
 //                "b) Nível quântico da partícula: " + "\n" + 
 //                "c) Probabilidade de encontrar a partícula na posição Xp: ");

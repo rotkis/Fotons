@@ -133,6 +133,7 @@ public class PocoPotencial extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEletronActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEletronActionPerformed

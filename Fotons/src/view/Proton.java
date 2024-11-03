@@ -248,7 +248,7 @@ public class Proton extends javax.swing.JFrame {
         });
 
         lblUnidade2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        lblUnidade2.setText("un");
+        lblUnidade2.setText("m");
 
         lblB.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblB.setText("b:");
@@ -257,7 +257,7 @@ public class Proton extends javax.swing.JFrame {
         lblA.setText("a:");
 
         lblUnidade1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        lblUnidade1.setText("un");
+        lblUnidade1.setText("m");
 
         lblDados.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblDados.setText("Dados para a probabilidade:");
@@ -339,10 +339,11 @@ public class Proton extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1)))
                 .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUnidade)
-                    .addComponent(lblLargura, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                    .addComponent(txtLargurap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLargura, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblUnidade)
+                        .addComponent(txtLargurap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,7 +369,6 @@ public class Proton extends javax.swing.JFrame {
                             .addComponent(lblB)
                             .addComponent(txtBp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUnidade2))))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
@@ -385,6 +385,7 @@ public class Proton extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNfpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNfpActionPerformed
@@ -399,7 +400,7 @@ public class Proton extends javax.swing.JFrame {
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         String resultados = cp.entradasTeclado();
-        txtProton.setText("RESULTADOS\n"
+        txtProton.setText("\t\t\tRESULTADOS\n\n"
                             + resultados);
     }//GEN-LAST:event_btEnviarActionPerformed
 
