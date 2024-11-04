@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import view.Eletron;
+import view.Simulacao;
 
 /**
  *
@@ -228,7 +229,10 @@ public class EstadoQuantico {
         DistribuicaoProbabilidade distProbabNf = new DistribuicaoProbabilidade(aoq, boq, numSubintervalos, larguraoq, nfoq);
         distProbabNf.exibirGrafico();        
 //---------------------------------------------------------------------------------------------------------------------------------------------
-
+//----------------------------- SIMULACAO ----------------------------------------------------------------------------------------------------------
+        Simulacao simu = new Simulacao();
+        simu.setVisible(true);
+//---------------------------------------------------------------------------------------------------------------------------------------------
         }
 
         return "\ta) Função de onda quântica no SI:"

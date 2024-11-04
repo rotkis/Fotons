@@ -33,11 +33,11 @@ public class Fotons {
         //PocoPotencial pp = new PocoPotencial();
         //pp.setVisible(true);
         
-        Simulacao s = new Simulacao();
-        s.setVisible(true);
+//        Simulacao s = new Simulacao();
+//        s.setVisible(true);
         
-//        PaginaInicial p = new PaginaInicial();
-//        p.setVisible(true);
+        PaginaInicial p = new PaginaInicial();
+        p.setVisible(true);
     }
     
 }

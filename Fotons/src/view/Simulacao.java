@@ -24,6 +24,7 @@ public class Simulacao extends javax.swing.JFrame {
     private int offsetY = MAX_Y / 2;
     private int x = 0;
     private int lastY1= 0, lastY2= 0, lastY3= 0, lastY4= 0, lastY5 = 0;
+    private int currentPanelIndex = 0;
     public Simulacao() {
         initComponents();
         g1 = (Graphics2D)n1.getGraphics();
@@ -31,11 +32,6 @@ public class Simulacao extends javax.swing.JFrame {
         g3 = (Graphics2D)n3.getGraphics();
         g4 = (Graphics2D)n4.getGraphics();
         g5 = (Graphics2D)n5.getGraphics();
-        n1.paintComponents(g1);
-        n2.paintComponents(g1);
-        n3.paintComponents(g1);
-        n4.paintComponents(g1);
-        n5.paintComponents(g1);
         g1.setStroke(new BasicStroke(3));
         g2.setStroke(new BasicStroke(3));
         g3.setStroke(new BasicStroke(3));
@@ -60,7 +56,7 @@ public class Simulacao extends javax.swing.JFrame {
         n1 = new javax.swing.JPanel();
         btVoltar = new javax.swing.JButton();
         btIniciar = new javax.swing.JButton();
-        btParar = new javax.swing.JButton();
+        btTrocar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -155,10 +151,10 @@ public class Simulacao extends javax.swing.JFrame {
             }
         });
 
-        btParar.setText("Parar");
-        btParar.addActionListener(new java.awt.event.ActionListener() {
+        btTrocar.setText("Trocar");
+        btTrocar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPararActionPerformed(evt);
+                btTrocarActionPerformed(evt);
             }
         });
 
@@ -198,7 +194,7 @@ public class Simulacao extends javax.swing.JFrame {
                 .addGap(79, 79, 79)
                 .addComponent(btIniciar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btParar)
+                .addComponent(btTrocar)
                 .addContainerGap(242, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -229,7 +225,7 @@ public class Simulacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
                     .addComponent(btIniciar)
-                    .addComponent(btParar))
+                    .addComponent(btTrocar))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -245,10 +241,17 @@ public class Simulacao extends javax.swing.JFrame {
     private void btIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarActionPerformed
        timer.start();
     }//GEN-LAST:event_btIniciarActionPerformed
+    
+    private void btTrocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTrocarActionPerformed
+        // Incrementa o índice para alternar entre os gráficos
+    currentPanelIndex = (currentPanelIndex + 1) % 5;
+    
+    // Oculta todos os painéis e limpa os gráficos
+    
+    // Exibe apenas o painel atual
+    
+    }//GEN-LAST:event_btTrocarActionPerformed
 
-    private void btPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPararActionPerformed
-        timer.stop();
-    }//GEN-LAST:event_btPararActionPerformed
 
     private void animate() {
         int panelWidth = MAX_X - 10;
@@ -278,33 +281,56 @@ public class Simulacao extends javax.swing.JFrame {
         }
 
         // Calcula os novos valores de y
-        int y5 = (int) (amplitude * Math.sin(0.4 * x)) + offsetY;
-        int y4 = (int) (amplitude * Math.sin(0.2 * x)) + offsetY;
-        int y3 = (int) (amplitude * Math.sin(0.1 * x)) + offsetY;
-        int y2 = (int) (amplitude * Math.sin(0.05 * x)) + offsetY;
-        int y1 = (int) (amplitude * Math.sin(0.025 * x)) + offsetY;
+        
+        
+        switch (currentPanelIndex) {
+        case 0 -> {
+            int y1 = (int) (amplitude * Math.sin(0.025 * x)) + offsetY;
+            g1.setColor(Color.RED);
+            g1.drawLine(x - 1, lastY1, x, y1);
+            lastY1 = y1;
+            
+        }
+        case 1 -> {
+            int y2 = (int) (amplitude * Math.sin(0.05 * x)) + offsetY;
+            g2.setColor(Color.BLUE);
+            g2.drawLine(x - 1, lastY2, x, y2);
+            lastY2 = y2;
+            
+        }
+        case 2 -> {
+            int y3 = (int) (amplitude * Math.sin(0.1 * x)) + offsetY;
+            g3.setColor(Color.GREEN);
+            g3.drawLine(x - 1, lastY3, x, y3);
+            lastY3 = y3;
+            
+        }
+        case 3 -> {
+            int y4 = (int) (amplitude * Math.sin(0.2 * x)) + offsetY;
+            g4.setColor(Color.MAGENTA);
+            g4.drawLine(x - 1, lastY4, x, y4);
+            lastY4 = y4;
+            
+            
+        }
+        case 4 -> {
+            int y5 = (int) (amplitude * Math.sin(0.4 * x)) + offsetY;
+            g5.setColor(Color.ORANGE);
+            g5.drawLine(x - 1, lastY5, x, y5);
+            lastY5 = y5;
+            
+        }
+    }
+        
+        
 
         // Desenha os pontos de forma contínua
-        g1.setColor(Color.RED);
-        g1.drawLine(x - 1, lastY1, x, y1);
-        g2.setColor(Color.BLUE);
-        g2.drawLine(x - 1, lastY2, x, y2);
-        g3.setColor(Color.GREEN);
-        g3.drawLine(x - 1, lastY3, x, y3);
-        g4.setColor(Color.MAGENTA);
-        g4.drawLine(x - 1, lastY4, x, y4);
-        g5.setColor(Color.ORANGE);
-        g5.drawLine(x - 1, lastY5, x, y5);
-
-        // Atualiza o último valor de y para cada onda
-        lastY1 = y1;
-        lastY2 = y2;
-        lastY3 = y3;
-        lastY4 = y4;
-        lastY5 = y5;
+        
 
         x++;
     }
+    
+    
 
     public Graphics2D getG1() {
         return g1;
@@ -427,11 +453,11 @@ public class Simulacao extends javax.swing.JFrame {
     }
 
     public JButton getBtParar() {
-        return btParar;
+        return btTrocar;
     }
 
     public void setBtParar(JButton btParar) {
-        this.btParar = btParar;
+        this.btTrocar = btParar;
     }
 
     public JButton getBtVoltar() {
@@ -485,7 +511,7 @@ public class Simulacao extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIniciar;
-    private javax.swing.JButton btParar;
+    private javax.swing.JButton btTrocar;
     private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

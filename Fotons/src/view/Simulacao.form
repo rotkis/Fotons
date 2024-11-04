@@ -52,7 +52,7 @@
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               <Component id="btIniciar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btParar" min="-2" max="-2" attributes="0"/>
+              <Component id="btTrocar" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="242" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -91,7 +91,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btParar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btTrocar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="89" max="32767" attributes="0"/>
           </Group>
@@ -250,12 +250,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btIniciarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btParar">
+    <Component class="javax.swing.JButton" name="btTrocar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Parar"/>
+        <Property name="text" type="java.lang.String" value="Trocar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPararActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTrocarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

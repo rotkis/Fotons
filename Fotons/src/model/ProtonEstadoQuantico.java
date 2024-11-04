@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import view.Proton;
+import view.Simulacao;
 
 /**
  *
@@ -217,6 +218,10 @@ public class ProtonEstadoQuantico {
         distProbabNf.exibirGrafico();        
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
+//----------------------------- SIMULACAO ----------------------------------------------------------------------------------------------------------
+        Simulacao simu = new Simulacao();
+        simu.setVisible(true);
+//---------------------------------------------------------------------------------------------------------------------------------------------
         }
 
         return "\ta) Função de onda quântica no SI:"
