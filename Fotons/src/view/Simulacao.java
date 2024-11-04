@@ -1,26 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.SimulacaoModel;
+import java.awt.Graphics;
+import java.util.Random;
 
-/**
- *
- * @author unifarotkis
- */
 public class Simulacao extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Simulacao
-     */
+    Graphics g1;
+    Graphics g2;
+    Graphics g3;
+    Graphics g4;
+    Graphics g5;
+
+    Thread animation;
+    static final int MAX_X = 640;
+    static final int MAX_Y = 65;
     public Simulacao() {
         initComponents();
-        sm = new SimulacaoModel(1);
+        g1 = n1.getGraphics();
+        g2 = n2.getGraphics();
+        g3 = n3.getGraphics();
+        g4 = n4.getGraphics();
+        g5 = n5.getGraphics();
+        n1.paintComponents(g1);
+        n2.paintComponents(g1);
+        n3.paintComponents(g1);
+        n4.paintComponents(g1);
+        n5.paintComponents(g1);
     }
 
     /**
@@ -39,18 +50,22 @@ public class Simulacao extends javax.swing.JFrame {
         n3 = new javax.swing.JPanel();
         n4 = new javax.swing.JPanel();
         n5 = new javax.swing.JPanel();
+        btParar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        n1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        n1.setPreferredSize(new java.awt.Dimension(670, 100));
 
         javax.swing.GroupLayout n1Layout = new javax.swing.GroupLayout(n1);
         n1.setLayout(n1Layout);
         n1Layout.setHorizontalGroup(
             n1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         n1Layout.setVerticalGroup(
             n1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 104, Short.MAX_VALUE)
         );
 
         btiniciar.setText("Iniciar");
@@ -67,70 +82,92 @@ public class Simulacao extends javax.swing.JFrame {
             }
         });
 
+        n2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        n2.setPreferredSize(new java.awt.Dimension(670, 100));
+
         javax.swing.GroupLayout n2Layout = new javax.swing.GroupLayout(n2);
         n2.setLayout(n2Layout);
         n2Layout.setHorizontalGroup(
             n2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         n2Layout.setVerticalGroup(
             n2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
+
+        n3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        n3.setPreferredSize(new java.awt.Dimension(670, 100));
 
         javax.swing.GroupLayout n3Layout = new javax.swing.GroupLayout(n3);
         n3.setLayout(n3Layout);
         n3Layout.setHorizontalGroup(
             n3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         n3Layout.setVerticalGroup(
             n3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
+
+        n4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        n4.setPreferredSize(new java.awt.Dimension(670, 100));
 
         javax.swing.GroupLayout n4Layout = new javax.swing.GroupLayout(n4);
         n4.setLayout(n4Layout);
         n4Layout.setHorizontalGroup(
             n4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         n4Layout.setVerticalGroup(
             n4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
+
+        n5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        n5.setPreferredSize(new java.awt.Dimension(670, 100));
 
         javax.swing.GroupLayout n5Layout = new javax.swing.GroupLayout(n5);
         n5.setLayout(n5Layout);
         n5Layout.setHorizontalGroup(
             n5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         n5Layout.setVerticalGroup(
             n5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
+
+        btParar.setText("Parar");
+        btParar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPararActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(n5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(n4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(n3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(n2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(62, 62, 62)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btiniciar)
                         .addGap(18, 18, 18)
                         .addComponent(btvoltar)
-                        .addGap(315, 315, 315))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btParar)
+                        .addGap(209, 209, 209))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(n2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                                .addComponent(n3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                                .addComponent(n4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                                .addComponent(n5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,13 +180,14 @@ public class Simulacao extends javax.swing.JFrame {
                 .addComponent(n3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(n2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btiniciar)
-                    .addComponent(btvoltar))
-                .addGap(0, 21, Short.MAX_VALUE))
+                    .addComponent(btvoltar)
+                    .addComponent(btParar))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,16 +200,89 @@ public class Simulacao extends javax.swing.JFrame {
     }//GEN-LAST:event_btvoltarActionPerformed
 
     private void btiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btiniciarActionPerformed
-        // TODO add your handling code here:
+        animation = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                int amplitude = MAX_Y / 2;
+                int offsetY = MAX_Y / 2;
+                int panelWidth = MAX_X -10;
+                int panelHeight = MAX_Y+3;
+                int x = 0;
+
+                // Variáveis para armazenar a posição anterior dos pontos
+                int prevY1 = offsetY, prevY2 = offsetY, prevY3 = offsetY, prevY4 = offsetY, prevY5 = offsetY;
+
+                while (true) { // Loop infinito para animação contínua
+                    if (x >= panelWidth) {
+                        x = 0; // Reinicia `x` no início
+                        // Limpa as áreas dos gráficos para reiniciar a onda
+                        g1.clearRect(0, 0, panelWidth, panelHeight);
+                        g2.clearRect(0, 0, panelWidth, panelHeight);
+                        g3.clearRect(0, 0, panelWidth, panelHeight);
+                        g4.clearRect(0, 0, panelWidth, panelHeight);
+                        g5.clearRect(0, 0, panelWidth, panelHeight);
+                    }
+
+                    // Calcula o ponto y atual para cada frequência de onda
+                    int y1 = (int) (amplitude * Math.sin(0.1 * x)) + offsetY;
+                    int y2 = (int) (amplitude * Math.sin(0.05 * x)) + offsetY;
+                    int y3 = (int) (amplitude * Math.sin(0.025 * x)) + offsetY;
+                    int y4 = (int) (amplitude * Math.sin(0.0125 * x)) + offsetY;
+                    int y5 = (int) (amplitude * Math.sin(0.00625 * x)) + offsetY;
+
+                    // Apaga o ponto anterior desenhando um ponto branco na posição anterior
+                    g1.setColor(Color.CYAN);
+                    g1.fillOval(x - 1, prevY1, 5, 5);
+                    g2.setColor(Color.CYAN);
+                    g2.fillOval(x - 1, prevY2, 5, 5);
+                    g3.setColor(Color.CYAN);
+                    g3.fillOval(x - 1, prevY3, 5, 5);
+                    g4.setColor(Color.CYAN);
+                    g4.fillOval(x - 1, prevY4, 5, 5);
+                    g5.setColor(Color.CYAN);
+                    g5.fillOval(x - 1, prevY5, 5, 5);
+
+                    // Desenha o ponto atual da onda em cada painel
+                    g1.setColor(Color.RED);
+                    g1.fillOval(x, y1, 5, 5);
+                    g2.setColor(Color.BLUE);
+                    g2.fillOval(x, y2, 5, 5);
+                    g3.setColor(Color.GREEN);
+                    g3.fillOval(x, y3, 5, 5);
+                    g4.setColor(Color.MAGENTA);
+                    g4.fillOval(x, y4, 5, 5);
+                    g5.setColor(Color.ORANGE);
+                    g5.fillOval(x, y5, 5, 5);
+
+                    // Armazena a posição atual para apagar no próximo ciclo
+                    prevY1 = y1;
+                    prevY2 = y2;
+                    prevY3 = y3;
+                    prevY4 = y4;
+                    prevY5 = y5;
+
+                    // Intervalo de atualização
+                    Thread.sleep(10);
+
+                    // Incrementa x para o próximo ponto
+                    x++;
+                }
+            } catch (InterruptedException e) {
+                System.err.println("Animação interrompida: " + e.getMessage());
+            }
+        }
+    });
+    animation.start();
+
     }//GEN-LAST:event_btiniciarActionPerformed
 
-    public SimulacaoModel getSm() {
-        return sm;
-    }
+    
+    private void btPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPararActionPerformed
+        animation.interrupt(); 
+        
+    }//GEN-LAST:event_btPararActionPerformed
 
-    public void setSm(SimulacaoModel sm) {
-        this.sm = sm;
-    }
 
     public JButton getBtiniciar() {
         return btiniciar;
@@ -229,44 +340,8 @@ public class Simulacao extends javax.swing.JFrame {
         this.n5 = n5;
     }
     
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Simulacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Simulacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Simulacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Simulacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Simulacao().setVisible(true);
-//            }
-//        });
-//    }
-    public SimulacaoModel sm;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btParar;
     private javax.swing.JButton btiniciar;
     private javax.swing.JButton btvoltar;
     private javax.swing.JPanel n1;

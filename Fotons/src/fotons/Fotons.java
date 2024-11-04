@@ -8,6 +8,7 @@ import view.Eletron;
 import view.ParametrosCaixaParticula;
 import view.PocoPotencial;
 import view.Proton;
+import view.Simulacao;
 
 /**
  *
@@ -28,8 +29,11 @@ public class Fotons {
         //Proton p = new Proton();
         //p.setVisible(true);
         
-        PocoPotencial pp = new PocoPotencial();
-        pp.setVisible(true);
+        Simulacao s = new Simulacao();
+        s.setVisible(true);
+        
+//        PocoPotencial pp = new PocoPotencial();
+//        pp.setVisible(true);
     }
     
 }
