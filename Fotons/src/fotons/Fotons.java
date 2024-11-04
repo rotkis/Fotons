@@ -9,6 +9,7 @@ import view.PaginaInicial;
 import view.ParametrosCaixaParticula;
 import view.PocoPotencial;
 import view.Proton;
+import view.Simulacao;
 
 /**
  *
@@ -32,8 +33,11 @@ public class Fotons {
         //PocoPotencial pp = new PocoPotencial();
         //pp.setVisible(true);
         
-        PaginaInicial p = new PaginaInicial();
-        p.setVisible(true);
+        Simulacao s = new Simulacao();
+        s.setVisible(true);
+        
+//        PaginaInicial p = new PaginaInicial();
+//        p.setVisible(true);
     }
     
 }
