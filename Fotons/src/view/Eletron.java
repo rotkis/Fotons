@@ -34,20 +34,12 @@ public class Eletron extends javax.swing.JFrame {
         this.btEnviar = btEnviar;
     }
 
-    public JButton getBtVoltar() {
-        return btVoltar;
-    }
-
-    public void setBtVoltar(JButton btVoltar) {
-        this.btVoltar = btVoltar;
-    }
-
     public JLabel getjLabel1() {
-        return jLabel1;
+        return lblTitulo;
     }
 
     public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
+        this.lblTitulo = jLabel1;
     }
 
     public JLabel getLblA() {
@@ -201,7 +193,6 @@ public class Eletron extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtEletron = new javax.swing.JTextArea();
         btEnviar = new javax.swing.JButton();
-        btVoltar = new javax.swing.JButton();
         txtLargurae = new javax.swing.JTextField();
         txtNie = new javax.swing.JTextField();
         txtNfe = new javax.swing.JTextField();
@@ -215,16 +206,23 @@ public class Eletron extends javax.swing.JFrame {
         txtAe = new javax.swing.JTextField();
         lblUnidade1 = new javax.swing.JLabel();
         txtBe = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         lblUnidade = new javax.swing.JLabel();
+        lblResutados = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CAIXA 1D");
-        setSize(new java.awt.Dimension(903, 626));
+        setPreferredSize(new java.awt.Dimension(800, 800));
+        setSize(new java.awt.Dimension(800, 800));
 
         panelEletron.setBackground(new java.awt.Color(153, 204, 255));
         panelEletron.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelEletron.setPreferredSize(new java.awt.Dimension(903, 626));
+        panelEletron.setPreferredSize(new java.awt.Dimension(800, 800));
 
         txtEletron.setColumns(20);
         txtEletron.setRows(5);
@@ -237,16 +235,6 @@ public class Eletron extends javax.swing.JFrame {
         btEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEnviarActionPerformed(evt);
-            }
-        });
-
-        btVoltar.setBackground(new java.awt.Color(153, 204, 255));
-        btVoltar.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        btVoltar.setText("Voltar");
-        btVoltar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVoltarActionPerformed(evt);
             }
         });
 
@@ -274,126 +262,186 @@ public class Eletron extends javax.swing.JFrame {
         lblUnidade1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblUnidade1.setText("m");
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setText("Elétron");
+        lblTitulo.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
+        lblTitulo.setText("Elétron");
 
         lblUnidade.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblUnidade.setText("m");
+
+        lblResutados.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblResutados.setText("Resultados");
 
         javax.swing.GroupLayout panelEletronLayout = new javax.swing.GroupLayout(panelEletron);
         panelEletron.setLayout(panelEletronLayout);
         panelEletronLayout.setHorizontalGroup(
             panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEletronLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
                 .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEletronLayout.createSequentialGroup()
-                        .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelEletronLayout.createSequentialGroup()
-                                .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblLargura)
+                    .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEletronLayout.createSequentialGroup()
+                            .addGap(51, 51, 51)
+                            .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelEletronLayout.createSequentialGroup()
                                     .addComponent(lblNi)
-                                    .addComponent(lblNf))
-                                .addGap(33, 33, 33)
-                                .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtNfe)
-                                        .addComponent(txtNie, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelEletronLayout.createSequentialGroup()
-                                        .addComponent(txtLargurae, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblUnidade))
-                                    .addComponent(lblUnidade2)
-                                    .addGroup(panelEletronLayout.createSequentialGroup()
-                                        .addComponent(lblUnidade1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(lblDados))
-                        .addGap(118, 118, 118))
+                                    .addGap(33, 33, 33)
+                                    .addComponent(txtNie, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelEletronLayout.createSequentialGroup()
+                                    .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblNf)
+                                        .addComponent(lblLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblDados))
+                                    .addGap(20, 20, 20)
+                                    .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblTitulo)
+                                        .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(panelEletronLayout.createSequentialGroup()
+                                                .addComponent(txtLargurae, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblUnidade))
+                                            .addComponent(txtNfe, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(panelEletronLayout.createSequentialGroup()
+                                                .addComponent(lblA)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtAe, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblUnidade1)
+                                                .addGap(35, 35, 35)
+                                                .addComponent(lblB)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblUnidade2)
+                                                .addGap(33, 33, 33)))))))
+                        .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelEletronLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelEletronLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelEletronLayout.createSequentialGroup()
-                        .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblA)
-                            .addComponent(lblB))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAe, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                            .addComponent(txtBe))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(panelEletronLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(panelEletronLayout.createSequentialGroup()
-                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(275, 275, 275)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(266, 266, 266)
+                        .addComponent(lblResutados, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         panelEletronLayout.setVerticalGroup(
             panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEletronLayout.createSequentialGroup()
-                .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(13, 13, 13)
+                .addComponent(lblTitulo)
+                .addGap(18, 18, 18)
                 .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLargura)
+                    .addComponent(lblLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLargurae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUnidade))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNi)
                     .addComponent(txtNie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNf)
                     .addComponent(txtNfe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(lblDados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDados)
                     .addComponent(lblA)
                     .addComponent(lblUnidade1)
                     .addComponent(txtAe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelEletronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblB)
                     .addComponent(lblUnidade2)
                     .addComponent(txtBe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(lblResutados, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(51, 153, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu1.setText("Menu");
+
+        jMenuItem1.setBackground(new java.awt.Color(51, 153, 255));
+        jMenuItem1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem1.setText("Página Inicial");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setBackground(new java.awt.Color(51, 153, 255));
+        jMenuItem2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem2.setText("Poço Potencial Unidimensional - Próton");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setBackground(new java.awt.Color(51, 153, 255));
+        jMenuItem3.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem3.setText("Função de Onda");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelEletron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelEletron, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEletron, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelEletron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        PocoPotencial pp = new PocoPotencial();
-        pp.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
         String resultados = ce.entradasTeclado();
-        txtEletron.setText("\t\t\tRESULTADOS\n\n"
-                            + resultados);
+        txtEletron.setText("\n" + resultados);
     }//GEN-LAST:event_btEnviarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        PaginaInicial pag = new PaginaInicial();
+        pag.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Proton pro = new Proton();
+        pro.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        ParametrosCaixaParticula pcp = new ParametrosCaixaParticula();
+        pcp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -433,8 +481,11 @@ public class Eletron extends javax.swing.JFrame {
     private ControllerEletron ce;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
-    private javax.swing.JButton btVoltar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblA;
     private javax.swing.JLabel lblB;
@@ -442,6 +493,8 @@ public class Eletron extends javax.swing.JFrame {
     private javax.swing.JLabel lblLargura;
     private javax.swing.JLabel lblNf;
     private javax.swing.JLabel lblNi;
+    private javax.swing.JLabel lblResutados;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUnidade;
     private javax.swing.JLabel lblUnidade1;
     private javax.swing.JLabel lblUnidade2;

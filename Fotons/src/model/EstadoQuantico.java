@@ -154,7 +154,7 @@ public class EstadoQuantico {
             eFotonJ = eFotonJ * (-1);
         }
         
-        cOnda = (hj * c) / eFotonJ; // m
+        cOnda = ((hj * c) / eFotonJ)/10; // m
         
         frequencia = eFotonJ / hj; // Hz
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -179,8 +179,9 @@ public class EstadoQuantico {
         String probabFormatNi = "", probabFormatNf = "";
         int numSubintervalos = 1000; // Número de subintervalos para aproximação
         
-        if(aoq > boq){
-            JOptionPane.showMessageDialog(view, "Digite valores válidos para a probabilidade!\n a < x < b",
+        if(aoq > boq || aoq < 0 || boq > larguraoq){
+            JOptionPane.showMessageDialog(view, "Digite valores válidos para a probabilidade!"
+                    + "\nA probabilidade e os gráficos só aparecerão quando:\n 0 < a ≤ x ≤ b < largura",
                     "Erro",JOptionPane.ERROR_MESSAGE);        
         }
         else{
@@ -230,38 +231,37 @@ public class EstadoQuantico {
 
         }
 
-        return "a) Função de onda quântica no SI (Ni): 𝜓" + nioq + "(𝑥) = " + 
-                formatoCientifico.format(A) + " * sin⁡(" + formatoCientifico.format(kni) +" * 𝑥)" + 
-                "\nFunção de onda quântica no SI (Nf): 𝜓" + nfoq + "(𝑥) = " + 
-                formatoCientifico.format(A) + " * sin⁡(" + formatoCientifico.format(knf) +" * 𝑥)" + 
+        return "\ta) Função de onda quântica no SI:"
+                + "\n\tInicial: ψ" + nioq + "(x) = " + 
+                formatoCientifico.format(A) + " * sen(" + formatoCientifico.format(kni) +" * x)" + 
+                "\n\tFinal: ψ" + nfoq + "(x) = " + 
+                formatoCientifico.format(A) + " * sen(" + formatoCientifico.format(knf) +" * x)" + 
                 "\n\n" +
-                "b) Energia do nível quântico inicial (Ni): " + formatoCientifico.format(ENiEv) + " eV ou " +
+                "\tb) Energia do nível quântico:"
+                + "\n\tInicial (E" + nioq + "): " + formatoCientifico.format(ENiEv) + " eV ou " +
                 formatoCientifico.format(ENiJ) + " J" + 
-                "\nEnergia do nível quântico final (Nf): " + formatoCientifico.format(ENfEv) + " eV ou " + 
+                "\n\tFinal (E" + nfoq + "): " + formatoCientifico.format(ENfEv) + " eV ou " + 
                 formatoCientifico.format(ENfJ) + " J" +
                 "\n\n"+
-                "c) Energia (𝐸fóton) do fóton " + tipo + ": " + formatoCientifico.format(eFoton) + " eV ou " +
+                "\tc) Energia (Efóton) do fóton " + tipo + ": " + formatoCientifico.format(eFoton) + " eV ou " +
                 formatoCientifico.format(eFotonJ) + " J" +
-                "\nFrequência (𝑓) do fóton " + tipo + ": " + formatoCientifico.format(frequencia) + " Hz" +
-                "\nComprimento (𝜆) de onda do fóton " + tipo + ": " + formatoCientifico.format(cOnda) +
-                " m ou " + formatoCientifico.format(cOnda*1E8) + " nm" +
+                "\n\tFrequência (f) do fóton " + tipo + ": " + formatoCientifico.format(frequencia) + " Hz" +
+                "\n\tComprimento (λ) de onda do fóton " + tipo + ": " + formatoCientifico.format(cOnda) +
+                " m ou " + formatoCientifico.format(cOnda*1E9) + " nm" +
                 "\n\n" +
-                "d) Velocidade (𝑣) da partícula no nível quântico inicial: " +
-                formatoCientifico.format(velocidadeInicial) + " m/s" +
-                "\nVelocidade (𝑣) da partícula no nível quântico final: " + 
-                formatoCientifico.format(velocidadeFinal) + " m/s" + 
+                "\td) Velocidade (v) da partícula no nível quântico:"
+                + "\n\tInicial (Ni = " + nioq + "): " + formatoCientifico.format(velocidadeInicial) + " m/s" +
+                "\n\tFinal (Nf = " + nfoq + "): " + formatoCientifico.format(velocidadeFinal) + " m/s" + 
                 "\n\n" +
-                "e) Comprimento de onda de De Broglie (𝜆" + nioq + ") da "
-                + "partícula no nível quântico inicial: " + formatoCientifico.format(cOndaBNi) +
+                "\te) Comprimento de onda de De Broglie (λ) da partícula no nível quântico:"
+                + "\n\tInicial (λ " + nioq + "): " + formatoCientifico.format(cOndaBNi) +
                 " m ou " + formatoCientifico.format(cOndaBNi*1E9) + " nm" +
-                "\nComprimento de onda de De Broglie (𝜆" + nfoq + ") da "
-                + "partícula no nível quântico final: " + formatoCientifico.format(cOndaBNf) +
+                "\n\tFinal (λ " + nfoq + "): " + formatoCientifico.format(cOndaBNf) +
                 " m ou " + formatoCientifico.format(cOndaBNf*1E9) + " nm" + 
                 "\n\n" +
-                "f) Probabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula "
-                + "entre 𝑎 e 𝑏 no nível inicial: " + probabFormatNi + " %" +
-                "\nProbabilidade (𝑃(𝑎≤𝑥≤𝑏)) de encontrar a partícula "
-                + "entre 𝑎 e 𝑏 no nível final: " + probabFormatNf + " %";
+                "\tf) Probabilidade (P(a≤x≤b)) de encontrar a partícula entre a e b no nível:"
+                + "\n\tInicial (Ni = " + nioq + "): " + probabFormatNi + " %" +
+                "\n\tFinal (Nf = " + nfoq + "): " + probabFormatNf + " %";
     }
     
     // Função de densidade de probabilidade que queremos integrar
@@ -321,7 +321,7 @@ public class EstadoQuantico {
             
             // Configura e exibe o gráfico
             Axis xAxis = lineChart.getXAxis();
-            xAxis.setTitle("Amplitude");
+            xAxis.setTitle("x (A)");
             xAxis.setOrigin(0.0);
             xAxis.setMinValue(-0.0000000001);
             xAxis.setNumberFormat("0.###E0");
@@ -330,7 +330,7 @@ public class EstadoQuantico {
             yAxis.setOrigin(0.0);
             yAxis.setNumberFormat("0.###E0");
 
-            lineChart.setPreferredSize(new java.awt.Dimension(1000, 800));
+            lineChart.setPreferredSize(new java.awt.Dimension(1000, 750));
             javax.swing.SwingUtilities.invokeLater(() -> {
                 javax.swing.JFrame frame = new javax.swing.JFrame("Gráfico da Função de Onda com N = " + n);
                 frame.setContentPane(lineChart);
@@ -375,12 +375,13 @@ public class EstadoQuantico {
             series.setTitle("Função de Distribuicao da Probabilidade com N = " + n);
             lineChart.getSeries().add(series);
             lineChart.setLegendTitle("Legenda");
+            lineChart.setShowHighlight(false);
             lineChart.setBackground(new java.awt.Color(153, 204, 255));
             lineChart.setGridType(GridType.Crossed);
             
             // Configura e exibe o gráfico
             Axis xAxis = lineChart.getXAxis();
-            xAxis.setTitle("Amplitude");
+            xAxis.setTitle("x (A)");
             xAxis.setOrigin(0.0);
             xAxis.setMinValue(-0.0000000001);
             xAxis.setNumberFormat("0.###E0");
@@ -388,8 +389,9 @@ public class EstadoQuantico {
             yAxis.setTitle("|ψ" + n + "|²");
             yAxis.setOrigin(0.0);
             yAxis.setNumberFormat("0.###E0");
+            yAxis.setMinValue(-100000000.0);
 
-            lineChart.setPreferredSize(new java.awt.Dimension(1000, 800));
+            lineChart.setPreferredSize(new java.awt.Dimension(1000, 750));
             javax.swing.SwingUtilities.invokeLater(() -> {
                 javax.swing.JFrame frame = new javax.swing.JFrame("Gráfico da Função de Distribuicao de Probabilidade com N = " + n);
                 frame.setContentPane(lineChart);

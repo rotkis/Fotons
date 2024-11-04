@@ -5,6 +5,7 @@
 package fotons;
 
 import view.Eletron;
+import view.PaginaInicial;
 import view.ParametrosCaixaParticula;
 import view.PocoPotencial;
 import view.Proton;
@@ -28,8 +29,11 @@ public class Fotons {
         //Proton p = new Proton();
         //p.setVisible(true);
         
-        PocoPotencial pp = new PocoPotencial();
-        pp.setVisible(true);
+        //PocoPotencial pp = new PocoPotencial();
+        //pp.setVisible(true);
+        
+        PaginaInicial p = new PaginaInicial();
+        p.setVisible(true);
     }
     
 }
