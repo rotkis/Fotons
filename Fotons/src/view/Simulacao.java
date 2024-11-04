@@ -32,6 +32,11 @@ public class Simulacao extends javax.swing.JFrame {
         g3 = (Graphics2D)n3.getGraphics();
         g4 = (Graphics2D)n4.getGraphics();
         g5 = (Graphics2D)n5.getGraphics();
+        n1.paintComponents(g1);
+        n2.paintComponents(g1);
+        n3.paintComponents(g1);
+        n4.paintComponents(g1);
+        n5.paintComponents(g1);
         g1.setStroke(new BasicStroke(3));
         g2.setStroke(new BasicStroke(3));
         g3.setStroke(new BasicStroke(3));
@@ -64,11 +69,12 @@ public class Simulacao extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
-        setPreferredSize(new java.awt.Dimension(800, 670));
+        setMaximumSize(new java.awt.Dimension(800, 670));
+        setMinimumSize(new java.awt.Dimension(800, 670));
+        setSize(new java.awt.Dimension(800, 670));
+        setType(java.awt.Window.Type.POPUP);
 
         n5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        n5.setPreferredSize(new java.awt.Dimension(600, 100));
 
         javax.swing.GroupLayout n5Layout = new javax.swing.GroupLayout(n5);
         n5.setLayout(n5Layout);
@@ -78,11 +84,10 @@ public class Simulacao extends javax.swing.JFrame {
         );
         n5Layout.setVerticalGroup(
             n5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         n4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        n4.setPreferredSize(new java.awt.Dimension(600, 100));
 
         javax.swing.GroupLayout n4Layout = new javax.swing.GroupLayout(n4);
         n4.setLayout(n4Layout);
@@ -96,7 +101,6 @@ public class Simulacao extends javax.swing.JFrame {
         );
 
         n3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        n3.setPreferredSize(new java.awt.Dimension(600, 100));
 
         javax.swing.GroupLayout n3Layout = new javax.swing.GroupLayout(n3);
         n3.setLayout(n3Layout);
@@ -110,7 +114,6 @@ public class Simulacao extends javax.swing.JFrame {
         );
 
         n2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        n2.setPreferredSize(new java.awt.Dimension(600, 100));
 
         javax.swing.GroupLayout n2Layout = new javax.swing.GroupLayout(n2);
         n2.setLayout(n2Layout);
@@ -120,11 +123,12 @@ public class Simulacao extends javax.swing.JFrame {
         );
         n2Layout.setVerticalGroup(
             n2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         n1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        n1.setPreferredSize(new java.awt.Dimension(600, 100));
+        n1.setOpaque(false);
+        n1.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout n1Layout = new javax.swing.GroupLayout(n1);
         n1.setLayout(n1Layout);
@@ -134,7 +138,7 @@ public class Simulacao extends javax.swing.JFrame {
         );
         n1Layout.setVerticalGroup(
             n1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         btVoltar.setText("Voltar");
@@ -173,7 +177,7 @@ public class Simulacao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -189,47 +193,49 @@ public class Simulacao extends javax.swing.JFrame {
                     .addComponent(n1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
                 .addGap(70, 70, 70))
             .addGroup(layout.createSequentialGroup()
-                .addGap(239, 239, 239)
+                .addGap(236, 236, 236)
                 .addComponent(btVoltar)
                 .addGap(79, 79, 79)
                 .addComponent(btIniciar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btTrocar)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(n5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(n5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(n4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(n4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(n3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(n2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(n3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(n2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(n1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
                     .addComponent(btIniciar)
                     .addComponent(btTrocar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
+        n1.getAccessibleContext().setAccessibleDescription("");
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -255,7 +261,7 @@ public class Simulacao extends javax.swing.JFrame {
 
     private void animate() {
         int panelWidth = MAX_X - 10;
-        int panelHeight = MAX_Y + 3;
+        int panelHeight = MAX_Y;
         if (lastY1 == 0 ||lastY2 == 0|| lastY3== 0|| lastY4== 0|| lastY5== 0){
             lastY1 = (int) (amplitude * Math.sin(0.4 * (panelWidth - 1))) + offsetY;
             lastY2 = (int) (amplitude * Math.sin(0.2 * (panelWidth - 1))) + offsetY;
@@ -266,248 +272,80 @@ public class Simulacao extends javax.swing.JFrame {
         // Limpa e redefine a posição x e os pontos de início quando a borda direita é atingida
         if (x >= panelWidth) {
             x = 0;
-            g1.clearRect(0, 0, panelWidth+15, panelHeight);
-            g2.clearRect(0, 0, panelWidth+15, panelHeight);
-            g3.clearRect(0, 0, panelWidth+15, panelHeight);
-            g4.clearRect(0, 0, panelWidth+15, panelHeight);
-            g5.clearRect(0, 0, panelWidth+15, panelHeight);
-
-            // Ajusta o valor inicial de y para garantir a continuidade
-            lastY5 = (int) (amplitude * Math.sin(0.4 * (panelWidth - 1))) + offsetY;
-            lastY4 = (int) (amplitude * Math.sin(0.2 * (panelWidth - 1))) + offsetY;
-            lastY3 = (int) (amplitude * Math.sin(0.1 * (panelWidth - 1))) + offsetY;
-            lastY2 = (int) (amplitude * Math.sin(0.05 * (panelWidth - 1))) + offsetY;
+            
             lastY1 = (int) (amplitude * Math.sin(0.025 * (panelWidth - 1))) + offsetY;
-        }
+            lastY2 = (int) (amplitude * Math.sin(0.05 * (panelWidth - 1))) + offsetY;
+            lastY3 = (int) (amplitude * Math.sin(0.1 * (panelWidth - 1))) + offsetY;
+            lastY4 = (int) (amplitude * Math.sin(0.2 * (panelWidth - 1))) + offsetY;
+            lastY5 = (int) (amplitude * Math.sin(0.4 * (panelWidth - 1))) + offsetY;
+            repaint();
 
-        // Calcula os novos valores de y
+        }
         
+        // Calcula os novos valores de y
+        int y1 = (int) (amplitude * Math.sin(0.025 * x)) + offsetY;
+        int y2 = (int) (amplitude * Math.sin(0.05 * x)) + offsetY;
+        int y3 = (int) (amplitude * Math.sin(0.1 * x)) + offsetY;
+        int y4 = (int) (amplitude * Math.sin(0.2 * x)) + offsetY;
+        int y5 = (int) (amplitude * Math.sin(0.4 * x)) + offsetY;
         
         switch (currentPanelIndex) {
         case 0 -> {
-            int y1 = (int) (amplitude * Math.sin(0.025 * x)) + offsetY;
+            
+            
             g1.setColor(Color.RED);
             g1.drawLine(x - 1, lastY1, x, y1);
-            lastY1 = y1;
+            
             
         }
         case 1 -> {
-            int y2 = (int) (amplitude * Math.sin(0.05 * x)) + offsetY;
+            
+            
             g2.setColor(Color.BLUE);
             g2.drawLine(x - 1, lastY2, x, y2);
-            lastY2 = y2;
+            
             
         }
         case 2 -> {
-            int y3 = (int) (amplitude * Math.sin(0.1 * x)) + offsetY;
+            
+            
             g3.setColor(Color.GREEN);
             g3.drawLine(x - 1, lastY3, x, y3);
-            lastY3 = y3;
+            
             
         }
         case 3 -> {
-            int y4 = (int) (amplitude * Math.sin(0.2 * x)) + offsetY;
+            
+            
+            
             g4.setColor(Color.MAGENTA);
             g4.drawLine(x - 1, lastY4, x, y4);
-            lastY4 = y4;
+            
             
             
         }
         case 4 -> {
-            int y5 = (int) (amplitude * Math.sin(0.4 * x)) + offsetY;
+            
+            
             g5.setColor(Color.ORANGE);
             g5.drawLine(x - 1, lastY5, x, y5);
-            lastY5 = y5;
+            
             
         }
     }
         
-        
-
+        lastY1 = y1;
+        lastY2 = y2;
+        lastY3 = y3;
+        lastY4 = y4;
+        lastY5 = y5;
         // Desenha os pontos de forma contínua
         
 
         x++;
+        
     }
     
-    
-
-    public Graphics2D getG1() {
-        return g1;
-    }
-
-    public void setG1(Graphics2D g1) {
-        this.g1 = g1;
-    }
-
-    public Graphics2D getG2() {
-        return g2;
-    }
-
-    public void setG2(Graphics2D g2) {
-        this.g2 = g2;
-    }
-
-    public Graphics2D getG3() {
-        return g3;
-    }
-
-    public void setG3(Graphics2D g3) {
-        this.g3 = g3;
-    }
-
-    public Graphics2D getG4() {
-        return g4;
-    }
-
-    public void setG4(Graphics2D g4) {
-        this.g4 = g4;
-    }
-
-    public Graphics2D getG5() {
-        return g5;
-    }
-
-    public void setG5(Graphics2D g5) {
-        this.g5 = g5;
-    }
-
-    public Timer getTimer() {
-        return timer;
-    }
-
-    public void setTimer(Timer timer) {
-        this.timer = timer;
-    }
-
-    public int getAmplitude() {
-        return amplitude;
-    }
-
-    public void setAmplitude(int amplitude) {
-        this.amplitude = amplitude;
-    }
-
-    public int getOffsetY() {
-        return offsetY;
-    }
-
-    public void setOffsetY(int offsetY) {
-        this.offsetY = offsetY;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getLastY1() {
-        return lastY1;
-    }
-
-    public void setLastY1(int lastY1) {
-        this.lastY1 = lastY1;
-    }
-
-    public int getLastY2() {
-        return lastY2;
-    }
-
-    public void setLastY2(int lastY2) {
-        this.lastY2 = lastY2;
-    }
-
-    public int getLastY3() {
-        return lastY3;
-    }
-
-    public void setLastY3(int lastY3) {
-        this.lastY3 = lastY3;
-    }
-
-    public int getLastY4() {
-        return lastY4;
-    }
-
-    public void setLastY4(int lastY4) {
-        this.lastY4 = lastY4;
-    }
-
-    public int getLastY5() {
-        return lastY5;
-    }
-
-    public void setLastY5(int lastY5) {
-        this.lastY5 = lastY5;
-    }
-
-    public JButton getBtIniciar() {
-        return btIniciar;
-    }
-
-    public void setBtIniciar(JButton btIniciar) {
-        this.btIniciar = btIniciar;
-    }
-
-    public JButton getBtParar() {
-        return btTrocar;
-    }
-
-    public void setBtParar(JButton btParar) {
-        this.btTrocar = btParar;
-    }
-
-    public JButton getBtVoltar() {
-        return btVoltar;
-    }
-
-    public void setBtVoltar(JButton btVoltar) {
-        this.btVoltar = btVoltar;
-    }
-
-    public JPanel getN1() {
-        return n1;
-    }
-
-    public void setN1(JPanel n1) {
-        this.n1 = n1;
-    }
-
-    public JPanel getN2() {
-        return n2;
-    }
-
-    public void setN2(JPanel n2) {
-        this.n2 = n2;
-    }
-
-    public JPanel getN3() {
-        return n3;
-    }
-
-    public void setN3(JPanel n3) {
-        this.n3 = n3;
-    }
-
-    public JPanel getN4() {
-        return n4;
-    }
-
-    public void setN4(JPanel n4) {
-        this.n4 = n4;
-    }
-
-    public JPanel getN5() {
-        return n5;
-    }
-
-    public void setN5(JPanel n5) {
-        this.n5 = n5;
-    }
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIniciar;
