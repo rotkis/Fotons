@@ -29,15 +29,19 @@ git clone https://github.com/rotkis/Fotons.git
 ## 🌌 Visualizações do Projeto
 
 **Página Inicial**
+
 ![Página Inicial](https://github.com/user-attachments/assets/b998ba23-0c7e-4f43-abcc-a44b54313d84)
 
 **Elétrons**
+
 ![Elétrons](https://github.com/user-attachments/assets/6b63dff8-6c00-41f4-80d9-14faad4a82f7)
 
 **Prótons**
+
 ![Prótons](https://github.com/user-attachments/assets/5583c1c9-49fc-4a79-9123-1a21cb2256e4)
 
 **Função de Onda**
+
 ![Função de Onda](https://github.com/user-attachments/assets/4ff79755-9920-4f4b-a156-6d8f0de9c9ef)
 
 ---
