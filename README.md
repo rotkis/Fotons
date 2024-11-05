@@ -16,6 +16,8 @@ Para obter o projeto, execute:
 ```bash
 git clone https://github.com/rotkis/Fotons.git
 ```
+Ou vai na Primeira versão em Releases e clique no Fotons.zip
+
 ## ▶️ Execução
 1. Acesse a pasta do projeto:
    ```bash
