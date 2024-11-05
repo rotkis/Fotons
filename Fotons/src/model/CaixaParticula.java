@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Aline Rocha
@@ -46,6 +48,8 @@ public class CaixaParticula {
         double kr = Double.parseDouble(k);
         double XPr = Double.parseDouble(Xp);
         double largura, n, probabilidade;
+        DecimalFormat formatoCientifico = new DecimalFormat("0.###E0");
+        DecimalFormat formatoInteiro = new DecimalFormat("0");
         
         largura = 2 /(Ar*Ar);
        
@@ -56,8 +60,11 @@ public class CaixaParticula {
         
         //double res = Ar * (Math.sin(Math.toRadians((kr*XPr))));
         
-        return  "\na) Largura da caixa: " + largura + " m" +
-                "\nb) Nível quântico da partícula: " + n +
-                "\nc) Probabilidade de encontrar a partícula na posição Xp: " + probabilidade + " dx";
+        return  "\ta) Largura da caixa: "
+                + "\n\tL = " + formatoCientifico.format(largura) + " m" +
+                "\n\n\tb) Nível quântico da partícula: "
+                + "\n\tn = " + formatoInteiro.format(n) +
+                "\n\n\tc) Probabilidade de encontrar a partícula na posição Xp:"
+                + "\n\tP(x)= " + formatoCientifico.format(probabilidade) + " * dx";
     }
 }
