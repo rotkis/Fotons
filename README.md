@@ -5,6 +5,7 @@ Bem-vindo ao **Fotons**! Este projeto explora conceitos de Mecânica Quântica, 
 
 Criamos este programa em **Java** e utilizamos a biblioteca **JChart** para gerar gráficos visuais que representam as funções de onda e as partículas quantizadas.
 
+https://www.youtube.com/watch?v=UVb-ySLZiog&t=2s
 ---
 
 ## ⚙️ Pré-requisitos
